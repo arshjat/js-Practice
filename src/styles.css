@@ -9,6 +9,10 @@ body {
   background-color: #b84a62;
   height: 100px;
   color: white;
+
+  /* workaround to get the text sprinklr mart in center  */
+  text-align: center;
+  line-height: 100px;
 }
 
 .container {
@@ -18,8 +22,12 @@ body {
   flex-wrap: wrap;
 }
 
+ul {
+  padding: 0px 0px 0px 10px;
+}
+
+/* product window */
 .li {
-  margin: 0 0 20px 20px;
   border: 0.1px solid #b84a62;
   padding: 20px 20px;
   height: 100px;
@@ -32,7 +40,14 @@ body {
   background-color: #666666;
 }
 
-.info {
+/* upper part of product window */
+.container .li .title {
+  margin: 2px 0px;
+}
+
+/* lower part of product window */
+.container .li .info {
   height: 50px;
   font-size: 11px;
+  padding: 3px 0px;
 }
