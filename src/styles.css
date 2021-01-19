@@ -7,18 +7,43 @@ body {
 
 .header {
   background-color: #b84a62;
-  height: 100px;
+  height: 50px;
   color: white;
-
+  width: 100%;
+  /* cannot fix header to top after applying margin to wrapper */
+  /* position : fixed; */
   /* workaround to get the text sprinklr mart in center  */
   text-align: center;
-  line-height: 100px;
+  line-height: 30px;
+}
+
+#up {
+  position: absolute;
+  width: 100%;
+  height: 50vh;
+  background-color: #b84a62;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%);
+  z-index: -1;
+}
+
+#down {
+  position: absolute;
+  width: 100%;
+  height: 50vh;
+  background-color: #b84a62;
+  -webkit-clip-path: polygon(0% 0%, 100% 15%, 100% 100%, 0% 100%);
+  z-index: -1;
+  margin-top: 0.1%;
+}
+
+.wrapper {
+  margin: 0 auto;
+  margin-top: 30vh;
 }
 
 .container {
   display: flex;
   padding: 10px 10px;
-  margin: 10px 10px;
   flex-wrap: wrap;
 }
 
