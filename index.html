@@ -8,48 +8,54 @@
 
   <body>
     <!-- header -->
-    <div class="header">
+    <header>
       <div class="logo">
         <img src="src/images/sprinklr-logo.png" width="65px" height="65px" />
       </div>
       <div>Mart</div>
       <div class="checkout">Checkout</div>
-    </div>
+    </header>
 
     <!-- slanted background -->
     <div class="slanted" id="up"></div>
-    <div class="description-grid">
-      <div class="col1">
-        <div id="row1">
-          <p>
-            Welcome to Sprinklr Mart!
-          </p>
+
+    <main>
+      <section class="description-grid">
+        <div class="col1">
+          <div id="row1">
+            <p>
+              Welcome to Sprinklr Mart!
+            </p>
+          </div>
+          <div id="row2">
+            <article>
+              We have a large variety of day-to-day items we are sure you'll
+              find useful.
+            </article>
+          </div>
         </div>
-        <div id="row2">
-          <p>
-            We have a large variety of day-to-day items we are sure you'll find
-            useful.
-          </p>
+        <div class="col2">
+          <div id="pic1">
+            <img src="src/images/pic1.svg" width="450px" height="450px" />
+          </div>
+          <div id="pic2">
+            <img src="src/images/pic2.svg" width="500px" height="500px" />
+          </div>
         </div>
-      </div>
-      <div class="col2">
-        <div id="pic1">
-          <img src="src/images/pic1.svg" width="450px" height="450px" />
-        </div>
-        <div id="pic2">
-          <img src="src/images/pic2.svg" width="500px" height="500px" />
-        </div>
-      </div>
-    </div>
+
+        <a href="#catch-scroll"><span></span><span></span><span></span></a>
+      </section>
+    </main>
     <!-- body -->
-    <div class="grid-container">
+    <section class="grid-container">
       <!-- left line -->
       <div class="grid-item">
         <div class="line">
           <div class="inner"></div>
         </div>
       </div>
-      <!-- abcd -->
+      <!-- element to catch scroll -->
+      <div id="catch-scroll"></div>
       <div class="grid-item container">
         <div class="li">
           <div class="prod-row1">
@@ -154,9 +160,19 @@
           <div class="inner"></div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- slanted background -->
-    <div class="slanted" id="down"></div>
+    <footer class="slanted" id="down"></footer>
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    >
+          $(function() {
+        $('a[href*=#]').on('click', function(e) {
+          e.preventDefault();
+          $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+        });
+      });
+    </script>
   </body>
 </html>
