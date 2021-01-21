@@ -205,10 +205,6 @@ ul {
   background-color: #ffffff;
   box-shadow: 0px 1px 6px 1px rgba(75, 75, 78, 0.2);
 }
-.li:hover {
-  opacity: 0.8;
-  background-color: #cacaca;
-}
 
 /* upper part of product window */
 
@@ -231,6 +227,20 @@ ul {
 }
 
 /* lower part of product window */
-.container > .li > .info {
-  font-size: 11px;
+.container .li .price {
+  font-weight: lighter;
+}
+
+.container .li .add-to-cart {
+  font-weight: lighter;
+  color: #06f;
+  margin-left: 45px;
+  border: 1px solid lightblue;
+  padding: 5px 5px;
+  border-radius: 7px;
+}
+
+.container .li .add-to-cart:hover {
+  color: #ffffff;
+  background-color: #06f;
 }
