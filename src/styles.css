@@ -29,6 +29,7 @@ header {
   margin-left: auto;
   margin-right: 200px;
   font-weight: lighter;
+  cursor: pointer;
 }
 .logo {
   display: flex;
@@ -109,7 +110,7 @@ section > a span {
   animation: scroll-properties 2s infinite;
   opacity: 0;
   box-sizing: border-box;
-  z-index: 3;
+  /* z-index: 1; */
 }
 section > a > span:nth-of-type(1) {
   -webkit-animation-delay: 0s;
@@ -238,6 +239,7 @@ ul {
   border: 1px solid lightblue;
   padding: 5px 5px;
   border-radius: 7px;
+  cursor: pointer;
 }
 
 .container .li .add-to-cart:hover {
