@@ -4,421 +4,205 @@
     <title>Ecommerce Website</title>
     <meta charset="UTF-8" />
     <script src="src/index.js"></script>
+    <link rel="stylesheet" href="./src/styles.css" />
   </head>
 
   <body>
     <!-- header -->
-    <div class="header">
-      <p>Sprinklr Mart !</p>
-    </div>
+    <header>
+      <div class="logo">
+        <img src="src/images/sprinklr-logo.png" width="65px" height="65px" />
+      </div>
+      <div>Mart</div>
+      <div class="checkout">Checkout</div>
+    </header>
 
     <!-- slanted background -->
     <div class="slanted" id="up"></div>
 
+    <main>
+      <section class="description-grid">
+        <div class="col1">
+          <div id="row1">
+            <p>
+              Welcome to Sprinklr Mart!
+            </p>
+          </div>
+          <div id="row2">
+            <article>
+              We have a large variety of day-to-day items we are sure you'll
+              find useful.
+            </article>
+          </div>
+        </div>
+        <div class="col2">
+          <div id="pic1">
+            <img src="src/images/pic1.svg" width="450px" height="450px" />
+          </div>
+          <div id="pic2">
+            <img src="src/images/pic2.svg" width="500px" height="500px" />
+          </div>
+        </div>
+
+        <a href="/#catch-scroll" onclick="this.style.display = 'none'"
+          ><span></span><span></span><span></span
+        ></a>
+      </section>
+    </main>
     <!-- body -->
-    <div class="grid-container">
+    <section class="grid-container">
       <!-- left line -->
       <div class="grid-item">
         <div class="line">
           <div class="inner"></div>
         </div>
       </div>
-<!-- abcd -->
+      <!-- element to catch scroll -->
+      <div id="catch-scroll"></div>
+
       <div class="grid-item container">
         <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
+          <div class="prod-row1">
+            <div class="prod-img">
+              <img src="src/images/prod1.jpeg" height="auto" width="100%" />
+            </div>
+          </div>
+          <div class="prod-row2">
+            <div class="title">One Plus 8 Pro</div>
+            <hr />
+            <span class="price">
+              <span class="only-text">Price : </span>
+              <span class="value">₹60,000/-</span>
+            </span>
+            <span class="add-to-cart">
+              Add to cart
+            </span>
           </div>
         </div>
         <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
+          <div class="prod-row1">
+            <div class="prod-img">
+              <img src="src/images/prod2.jpeg" height="auto" width="100%" />
+            </div>
+          </div>
+          <div class="prod-row2">
+            <div class="title">Sony Headphones</div>
+            <hr />
+            <span class="price">
+              <span class="only-text">Price : </span>
+              <span class="value">₹60,000/-</span>
+            </span>
+            <span class="add-to-cart">
+              Add to cart
+            </span>
           </div>
         </div>
         <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
+          <div class="prod-row1">
+            <div class="prod-img">
+              <img src="src/images/prod3.jpeg" height="auto" width="100%" />
+            </div>
+          </div>
+          <div class="prod-row2">
+            <div class="title">Logitech Mechanical Keyboard</div>
+            <hr />
+            <span class="price">
+              <span class="only-text">Price : </span>
+              <span class="value">₹60,000/-</span>
+            </span>
+            <span class="add-to-cart">
+              Add to cart
+            </span>
           </div>
         </div>
         <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
+          <div class="prod-row1">
+            <div class="prod-img">
+              <img src="src/images/prod4.jpeg" height="auto" width="100%" />
+            </div>
+          </div>
+          <div class="prod-row2">
+            <div class="title">Seagate External Hard disk</div>
+            <hr />
+            <span class="price">
+              <span class="only-text">Price : </span>
+              <span class="value">₹60,000/-</span>
+            </span>
+            <span class="add-to-cart">
+              Add to cart
+            </span>
           </div>
         </div>
         <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
+          <div class="prod-row1">
+            <div class="prod-img">
+              <img src="src/images/prod5.jpeg" height="auto" width="100%" />
+            </div>
+          </div>
+          <div class="prod-row2">
+            <div class="title">Samsung 10000mAh Powerbank</div>
+            <hr />
+            <span class="price">
+              <span class="only-text">Price : </span>
+              <span class="value">₹60,000/-</span>
+            </span>
+            <span class="add-to-cart">
+              Add to cart
+            </span>
           </div>
         </div>
         <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
+          <div class="prod-row1">
+            <div class="prod-img">
+              <img src="src/images/prod6.jpeg" height="auto" width="100%" />
+            </div>
+          </div>
+          <div class="prod-row2">
+            <div class="title">Dell Inspiron 15 7501 Laptop</div>
+            <hr />
+            <span class="price">
+              <span class="only-text">Price : </span>
+              <span class="value">₹60,000/-</span>
+            </span>
+            <span class="add-to-cart">
+              Add to cart
+            </span>
           </div>
         </div>
         <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
+          <div class="prod-row1">
+            <div class="prod-img">
+              <img src="src/images/prod7.jpeg" height="auto" width="100%" />
+            </div>
+          </div>
+          <div class="prod-row2">
+            <div class="title">MuscleBlaze 4lb Rich Protein</div>
+            <hr />
+            <span class="price">
+              <span class="only-text">Price : </span>
+              <span class="value">₹60,000/-</span>
+            </span>
+            <span class="add-to-cart">
+              Add to cart
+            </span>
           </div>
         </div>
         <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
+          <div class="prod-row1">
+            <div class="prod-img">
+              <img src="src/images/prod8.jpeg" height="auto" width="100%" />
+            </div>
           </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
+          <div class="prod-row2">
+            <div class="title">Boat Speakers</div>
+            <hr />
+            <span class="price">
+              <span class="only-text">Price : </span>
+              <span class="value">₹60,000/-</span>
+            </span>
+            <span class="add-to-cart">
+              Add to cart
+            </span>
           </div>
         </div>
       </div>
@@ -428,9 +212,9 @@
           <div class="inner"></div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- slanted background -->
-    <div class="slanted" id="down"></div>
+    <footer class="slanted" id="down"></footer>
   </body>
 </html>
