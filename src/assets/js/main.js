@@ -98,12 +98,12 @@
 		};
 
 		function addProduct(target) {
-			let nameOfProd = target.parentElement.getElementsByClassName("title")[0].innerHTML;
-			let price = target.parentElement.getElementsByClassName("value")[0].innerText.slice(1,-2);
-			let img = target.parentElement.parentElement.getElementsByTagName("img")[0];
-			let srcList = img.src.split('/');
-			let imgName = "" + srcList[srcList.length-1];
-			productId = productId + 1;
+			
+			let productId = target.parentElement.parentElement.dataset.id;
+			let nameOfProd = itemList[productId-1]["nameOfProduct"]; //itemList ia my database object defined in index.js
+			let price = itemList[productId-1]["price"]
+			let imgSrc = itemList[productId-1]["imgSrc"]
+			
 
 			// check if that product is already in the cart
 			let isProductPresent = false;
@@ -117,18 +117,17 @@
 			}
 
 			if(isProductPresent){
-				console.log("Already Present !");
 				selectedCartItem.getElementsByTagName("select")[0].selectedIndex++;
 			}
 			else{
-				var productAdded = '<li class="cd-cart__product"><div class="cd-cart__image"><a href="#0"><img src="./src/images/' + imgName + '" alt="placeholder"></a></div><div class="cd-cart__details"><h3 class="truncate"><a href="#0">' + nameOfProd + '</a></h3><h4 class="cd-cart__price">₹' + price + '</h4><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item">Delete</a><div class="cd-cart__quantity"><label for="cd-product-'+ productId +'">Qty</label><span class="cd-cart__select"><select class="reset" id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>';
+				var productAdded = '<li class="cd-cart__product" data-id=' + productId + '><div class="cd-cart__image"><a href="#0"><img src=' + imgSrc + ' alt="placeholder"></a></div><div class="cd-cart__details"><h3 class="truncate"><a href="#0">' + nameOfProd + '</a></h3><h4 class="cd-cart__price">₹' + price + '</h4><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item">Delete</a><div class="cd-cart__quantity"><label for="cd-product-'+ productId +'">Qty</label><span class="cd-cart__select"><select class="reset" id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>';
 				cartList.insertAdjacentHTML('beforeend', productAdded);
 			}
 		};
 
 		function removeProduct(product) {
 			if(cartTimeoutId) clearInterval(cartTimeoutId);
-			removePreviousProduct(); // prduct previously deleted -> definitively remove it from the cart
+			removePreviousProduct(); // product previously deleted -> definitively remove it from the cart
 			
 			var topPosition = product.offsetTop,
 				productQuantity = Number(product.getElementsByTagName('select')[0].value),

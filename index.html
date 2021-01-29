@@ -3,7 +3,10 @@
   <head>
     <title>Ecommerce Website</title>
     <meta charset="UTF-8" />
-    <script src="src/index.js"></script>
+    <script src="./src/index.js" defer></script>
+    <script src="./src/assets/js/util.js" defer></script>
+    <!-- util functions included in the CodyHouse framework -->
+    <script src="./src/assets/js/main.js" defer></script>
     <link rel="stylesheet" href="./src/styles.css" />
   </head>
 
@@ -61,150 +64,7 @@
       <div id="catch-scroll"></div>
 
       <div class="grid-item container">
-        <div class="li">
-          <div class="prod-row1">
-            <div class="prod-img">
-              <img src="src/images/prod1.jpeg" height="auto" width="100%" />
-            </div>
-          </div>
-          <div class="prod-row2">
-            <div class="title">One Plus 8 Pro</div>
-            <hr />
-            <span class="price">
-              <span class="only-text">Price : </span>
-              <span class="value">₹60,000/-</span>
-            </span>
-            <span class="add-to-cart">
-              Add to cart
-            </span>
-          </div>
-        </div>
-        <div class="li">
-          <div class="prod-row1">
-            <div class="prod-img">
-              <img src="src/images/prod2.jpeg" height="auto" width="100%" />
-            </div>
-          </div>
-          <div class="prod-row2">
-            <div class="title">Sony Headphones</div>
-            <hr />
-            <span class="price">
-              <span class="only-text">Price : </span>
-              <span class="value">₹4,000/-</span>
-            </span>
-            <span class="add-to-cart">
-              Add to cart
-            </span>
-          </div>
-        </div>
-        <div class="li">
-          <div class="prod-row1">
-            <div class="prod-img">
-              <img src="src/images/prod3.jpeg" height="auto" width="100%" />
-            </div>
-          </div>
-          <div class="prod-row2">
-            <div class="title">Logitech Mechanical Keyboard</div>
-            <hr />
-            <span class="price">
-              <span class="only-text">Price : </span>
-              <span class="value">₹2,500/-</span>
-            </span>
-            <span class="add-to-cart">
-              Add to cart
-            </span>
-          </div>
-        </div>
-        <div class="li">
-          <div class="prod-row1">
-            <div class="prod-img">
-              <img src="src/images/prod4.jpeg" height="auto" width="100%" />
-            </div>
-          </div>
-          <div class="prod-row2">
-            <div class="title">Seagate External Hard disk</div>
-            <hr />
-            <span class="price">
-              <span class="only-text">Price : </span>
-              <span class="value">₹3,400/-</span>
-            </span>
-            <span class="add-to-cart">
-              Add to cart
-            </span>
-          </div>
-        </div>
-        <div class="li">
-          <div class="prod-row1">
-            <div class="prod-img">
-              <img src="src/images/prod5.jpeg" height="auto" width="100%" />
-            </div>
-          </div>
-          <div class="prod-row2">
-            <div class="title">Samsung 10000mAh Powerbank</div>
-            <hr />
-            <span class="price">
-              <span class="only-text">Price : </span>
-              <span class="value">₹5,000/-</span>
-            </span>
-            <span class="add-to-cart">
-              Add to cart
-            </span>
-          </div>
-        </div>
-        <div class="li">
-          <div class="prod-row1">
-            <div class="prod-img">
-              <img src="src/images/prod6.jpeg" height="auto" width="100%" />
-            </div>
-          </div>
-          <div class="prod-row2">
-            <div class="title">Dell Inspiron 15 7501 Laptop</div>
-            <hr />
-            <span class="price">
-              <span class="only-text">Price : </span>
-              <span class="value">₹75,000/-</span>
-            </span>
-            <span class="add-to-cart">
-              Add to cart
-            </span>
-          </div>
-        </div>
-        <div class="li">
-          <div class="prod-row1">
-            <div class="prod-img">
-              <img src="src/images/prod7.jpeg" height="auto" width="100%" />
-            </div>
-          </div>
-          <div class="prod-row2">
-            <div class="title">MuscleBlaze 4lb Rich Protein</div>
-            <hr />
-            <span class="price">
-              <span class="only-text">Price : </span>
-              <span class="value">₹5,500/-</span>
-            </span>
-            <span class="add-to-cart">
-              Add to cart
-            </span>
-          </div>
-        </div>
-        <div class="li">
-          <div class="prod-row1">
-            <div class="prod-img">
-              <img src="src/images/prod8.jpeg" height="auto" width="100%" />
-            </div>
-          </div>
-          <div class="prod-row2">
-            <div class="title">Boat Speakers</div>
-            <hr />
-            <span class="price">
-              <span class="only-text">Price : </span>
-              <span class="value">₹7,000/-</span>
-            </span>
-            <span class="add-to-cart">
-              Add to cart
-            </span>
-          </div>
-        </div>
+        <!-- Here the cart items will be listed from database -->
       </div>
       <!--right line -->
       <div class="grid-item">
@@ -272,9 +132,6 @@
       <!-- .cd-cart__content -->
     </div>
     <!-- cd-cart -->
-    <script src="./src/assets/js/util.js"></script>
-    <!-- util functions included in the CodyHouse framework -->
-    <script src="./src/assets/js/main.js"></script>
 
     <!-- slanted background -->
     <footer class="slanted" id="down"></footer>
