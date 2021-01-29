@@ -62,11 +62,14 @@ const statusIcon = {
 }
 
 const checkoutDataReceived = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem("checkoutData"))));  
-console.log(checkoutDataReceived);
-
+let bagTotal = 0;
+const bagDiscount = 1000;
+let taxPercent = 25;
+const deliveryCharges = 50;
+let grandTotal = 0;
 
 // add items to container based on productId in database
-let container = document.getElementsByClassName("main-leftpane")[0]
+const container = document.getElementsByClassName("main-leftpane")[0];
 for(let entry of checkoutDataReceived){
 
     let productId = entry[0];
@@ -81,14 +84,65 @@ for(let entry of checkoutDataReceived){
         }
     }
 
-    let nameOfProduct = item["nameOfProduct"]
-    let price = item["price"]
-    let imgSrc = item["imgSrc"]
-    let status = item["status"]
+    let nameOfProduct = item["nameOfProduct"];
+    let price = item["price"];
+    // update bagTotal
+    bagTotal += Number(price.replace(',',''));
+
+    let imgSrc = item["imgSrc"];
+    let status = item["status"];
     let totalPrice = count*(price.replace(',',''));
     console.log(count,nameOfProduct,price.replace(',',''),imgSrc,status,totalPrice);
     let statusSrc = (status==="In Stock!" ? statusIcon["okay"] : statusIcon["alert"]);
-    let cartItem = '<div class="cart-item" data-id='+ productId +'><div class="item-image"><img src='+ imgSrc +' width="96%" height="90%" /></div><div class="item-description"><div class="first-line"><div>'+ nameOfProduct +'</div></div><div class="second-line"><div>Qty : '+ count +'</div></div><div class="third-line"><span>'+ status +'</span><span><img src="' + statusSrc + '" height="14vmin" width="14vmin"/></span></div><div class="fourth-line"><div>Price: ₹'+ price +'</div><div>Total : ₹' + count*(price.replace(',','')) + '</div></div><hr width="96%" /><div class="fifth-line"><button id="remove-button">Remove</button><button id="addToWishlist-button">Add to Wishlist</button></div></div></div>';
+    let cartItem = '<div class="cart-item" data-id='+ productId +'><div class="item-image"><img src='+ imgSrc +' width="96%" height="90%" /></div><div class="item-description"><div class="first-line"><div>'+ nameOfProduct +'</div></div><div class="second-line"><div>Qty : '+ count +'</div></div><div class="third-line"><span>'+ status +'</span><span><img src="' + statusSrc + '" height="14vmin" width="14vmin"/></span></div><div class="fourth-line"><div>Price: ₹'+ price +'</div><div>Total : ₹' + count*(price.replace(',','')) + '</div></div><hr width="96%" /><div class="fifth-line"><button class="remove-button">Remove</button><button class="addToWishlist-button">Add to Wishlist</button></div></div></div>';
     container.insertAdjacentHTML('beforeend',cartItem);
-
 }
+
+// update order summary
+const orderSummary = document.getElementsByClassName("prices")[0];
+let taxAmount = (bagTotal-bagDiscount)*taxPercent/100;
+grandTotal = bagTotal - bagDiscount + taxAmount + deliveryCharges;
+const summaryDiv = '<div id="prices-header"><div>Price Details</div></div><div class="price-rows"><div>Bag Total</div><div>₹' + bagTotal + '</div></div><div class="price-rows"><div>Bag Discount</div><div>₹' + bagDiscount + '</div></div><div class="price-rows"><div>Tax</div><div>₹' + taxAmount + '</div></div><div class="price-rows"><div>Coupon Discount</div><a href="#" id="coupon-link">Apply</a></div><div class="price-rows"><div>Delivery Charges</div><div>₹' + deliveryCharges + '</div></div>';
+orderSummary.insertAdjacentHTML('beforeend',summaryDiv);
+
+const totalElem = document.getElementsByClassName("total")[0];
+const totalDiv = '<div>Total</div><div>₹' + grandTotal + '</div>';
+totalElem.insertAdjacentHTML('beforeend',totalDiv);
+
+
+let mainLeftPane = document.getElementsByClassName("main-leftpane")[0];
+mainLeftPane.addEventListener("click",(e) => {
+    if(e.target.classList.contains('remove-button')){
+        let productId = e.target.parentElement.parentElement.parentElement.dataset.id;
+    
+        //remove the product from the localStorage
+        let lsString = localStorage.getItem("checkoutData");
+        let ind = JSON.parse(JSON.parse(JSON.stringify(lsString)));
+        
+        let newValue = "[";
+        for(let arr of ind){
+            if(arr[0]!==productId){
+                newValue += '["'+arr[0]+'","'+arr[1]+'"],'
+            }
+        }
+        newValue=newValue.slice(0,-1);
+        newValue+="]"
+        localStorage.setItem("checkoutData",newValue);
+
+        //remove the product from the cart
+        let cartItems = container.getElementsByClassName("cart-item");
+        let curItem = null;
+        for(let item of cartItems){
+            if(item.dataset.id===productId){
+                curItem=item;
+                break;
+            }
+        }
+        curItem.remove();
+    }
+
+    if(e.target.classList.contains('addToWishlist-button')){
+        let productId = e.target.parentElement.parentElement.parentElement.dataset.id;
+        console.log("Product added to wishlist with product id :",productId);
+    }
+});

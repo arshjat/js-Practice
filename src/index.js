@@ -81,11 +81,7 @@ checkOutButton.addEventListener("click", ()=> {
 
     localStorage.setItem(key,value);
     console.log(localStorage)
+    
     //traverse to checkout page
     window.location.href="checkout.html";
 });
-
-cartData = {
-    "productId" : "",
-    "count" : ""
-}

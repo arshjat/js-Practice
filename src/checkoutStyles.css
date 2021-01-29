@@ -185,7 +185,7 @@ main {
   justify-content: space-between;
 }
 
-.cart-item .item-description .fifth-line #remove-button {
+.cart-item .item-description .fifth-line .remove-button {
   color: rgb(184, 0, 0);
   border-color: rgb(184, 0, 0);
   border-width: 0.1vmin;
@@ -194,7 +194,7 @@ main {
   font-size: 1.5vmin;
 }
 
-.cart-item .item-description .fifth-line #addToWishlist-button {
+.cart-item .item-description .fifth-line .addToWishlist-button {
   color: rgb(53, 53, 53);
   border-color: rgb(53, 53, 53);
   border-width: 0.1vmin;
