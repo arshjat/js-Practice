@@ -67,21 +67,13 @@ for(let item of itemList){
 //open next page on click checkout
 let checkOutButton = document.getElementsByClassName("checkout")[0]
 checkOutButton.addEventListener("click", ()=> {
-    // save cart data to local storage
-    let cartItems = document.getElementsByClassName("cd-cart__product");
-    let key = "checkoutData";
-    let value = "[";
-    for(let item of cartItems){
-        let productId = item.dataset.id;
-        let count = item.getElementsByTagName("select")[0].selectedIndex+1;
-        value += '["'+productId+'","'+count+'"],'
-    }
-    value=value.slice(0,-1);
-    value+="]"
+    //traverse to checkout page
+    window.location.href="checkout.html";
+});
 
-    localStorage.setItem(key,value);
-    console.log(localStorage)
-    
+//repeat above functionality for checkoutButton in cart
+let checkoutButtonCart = document.getElementsByClassName("cd-cart__checkout")[0];
+checkoutButtonCart.addEventListener("click", ()=> {
     //traverse to checkout page
     window.location.href="checkout.html";
 });
