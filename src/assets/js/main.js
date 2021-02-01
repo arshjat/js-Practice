@@ -18,18 +18,18 @@
 
 
 		function initCartEvents() {
-			// add products to cart ??noChange
+			// add products to cart 
 			for(var i = 0; i < cards.length; i++) {(function(i){
 				cards[i].getElementsByClassName("add-to-cart")[0].addEventListener('click', addToCart);
 			})(i);}
 
-			// open/close cart ??noChange
+			// open/close cart 
 			cart[0].getElementsByClassName('cd-cart__trigger')[0].addEventListener('click', function(event){
 				event.preventDefault();
 				toggleCart();
 			});
 			
-			// ??noChange
+			// 
 			cart[0].addEventListener('click', function(event) {
 				if(event.target == cart[0]) { // close cart when clicking on bg layer
 					toggleCart(true);
@@ -39,11 +39,11 @@
 				}
 			});
 
-			// update product quantity inside cart ??noChange
+			// update product quantity inside cart 
 			cart[0].addEventListener('change', function(event) {
 				if(event.target.tagName.toLowerCase() == 'select') quickUpdateCart();
 				//update localStorage
-				let ind = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem("checkoutData"))));
+				let ind = JSON.parse(localStorage.getItem("checkoutData"));
 				let newInd = [];
 				for(let arr of ind){
 					if(event.target.getAttribute("id")===arr[0]){
@@ -55,7 +55,7 @@
 				localStorage.setItem('checkoutData',JSON.stringify(newInd));
 			});
 
-			//reinsert product deleted from the cart ??noChange
+			//reinsert product deleted from the cart 
 			cartUndo.addEventListener('click', function(event) {
 				if(event.target.tagName.toLowerCase() == 'a') {
 					event.preventDefault();
@@ -73,13 +73,13 @@
 				}
 			});
 
-			// check if localStorage is empty and if not, add items to cart  ??CHANGE
+			// check if localStorage is empty and if not, add items to cart  
 			if(localStorage.getItem('checkoutData')){
 				if(animatingQuantity) return;
 				var cartIsEmpty = Util.hasClass(cart[0], 'cd-cart--empty');
 				
 				let lsString = localStorage.getItem("checkoutData");
-        		let ind = JSON.parse(JSON.parse(JSON.stringify(lsString)));
+        		let ind = JSON.parse(lsString);
 
 				for(let arr of ind){
 					let productId = arr[0];
@@ -107,7 +107,7 @@
 			}
 		};
 
-		// ??noChange
+		// 
 		function addToCart(event) {
 			event.preventDefault();
 			if(animatingQuantity) return;
@@ -118,12 +118,12 @@
 			//update number of items 
 			updateCartCount(cartIsEmpty);
 			//update total price
-			updateCartTotal(Number(this.parentElement.getElementsByClassName("value")[0].innerText.slice(1,-2).replace(',','')), true);
+			updateCartTotal(Number(database.get(productId)["price"].replace(',','')), true);
 			//show cart
 			Util.removeClass(cart[0], 'cd-cart--empty');
 		};
 
-		// ??noChange
+		// 
 		function toggleCart(bool) { // toggle cart visibility
 			var cartIsOpen = ( typeof bool === 'undefined' ) ? Util.hasClass(cart[0], 'cd-cart--open') : bool;
 		
@@ -144,7 +144,7 @@
 			}
 		};
 
-		// ??CHANGE
+		// 
 		function addProduct(productId) { 
 			let nameOfProd = database.get(productId)["nameOfProduct"]; //itemList ia my database object defined in index.js
 			let price = database.get(productId)["price"]
@@ -163,18 +163,19 @@
 				}
 			}
 
-			let ind = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('checkoutData'))));
+			let ind = JSON.parse(localStorage.getItem('checkoutData'));
 			if(isProductPresent){
 				selectedCartItem.getElementsByTagName("select")[0].selectedIndex++;
 				
 				// update in localStorage also
+				let newInd = []
 				for(let arr of ind){
 					if(arr[0]===productId){
-						arr[1] = (Number(arr[1])+1).toString();
-						break;
+						newInd.push([arr[0],(Number(arr[1])+1).toString()]) ;
 					}
+					else newInd.push(arr);
 				}
-				localStorage.setItem('checkoutData',JSON.stringify(ind));
+				localStorage.setItem('checkoutData',JSON.stringify(newInd));
 			}
 			else{
 				var productAdded = '<li class="cd-cart__product" data-id=' + productId + '><div class="cd-cart__image"><a href="#0"><img src=' + imgSrc + ' alt="placeholder"></a></div><div class="cd-cart__details"><h3 class="truncate"><a href="#0">' + nameOfProd + '</a></h3><h4 class="cd-cart__price">₹' + price + '</h4><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item">Delete</a><div class="cd-cart__quantity"><label for="'+ productId +'">Qty</label><span class="cd-cart__select"><select class="reset" id="'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>';
@@ -182,23 +183,20 @@
 
 				// update in localStorage also
 				let key = "checkoutData";
-				let value = localStorage.getItem(key);
+				let value = JSON.parse(localStorage.getItem(key));
 				if(value){
-					value = value.slice(0,-1);
-					value += ',["'+productId+'","1"]';
-					value+="]";
+					value.push([productId,"1"]);
 				}
 				else{
-					value = "[";
-					value += '["'+productId+'","1"]';
-					value+="]";
+					value = [];
+					value.push([productId,"1"]);
 				}
 
-				localStorage.setItem(key,value);				
+				localStorage.setItem(key,JSON.stringify(value));				
 			}
 		};
 
-		// ??noChange
+		// 
 		function removeProduct(product) {
 			if(cartTimeoutId) clearInterval(cartTimeoutId);
 			removePreviousProduct(); // product previously deleted -> definitively remove it from the cart
@@ -222,7 +220,7 @@
 			}, 5000);
 		};
 
-		// ??noChange
+		// 
 		function removePreviousProduct() { // definitively removed a product from the cart (undo not possible anymore)
 			var deletedProduct = cartList.getElementsByClassName('cd-cart__product--deleted');
 			if(deletedProduct.length > 0 ) {
@@ -232,22 +230,21 @@
 				let lsString = localStorage.getItem("checkoutData");
 				let ind = JSON.parse(JSON.parse(JSON.stringify(lsString)));
 				
-				let newValue = "[";
+				let newValue = [];
 				for(let arr of ind){
 					if(arr[0]!==productId){
-						newValue += '["'+arr[0]+'","'+arr[1]+'"],'
+						newValue.push([arr[0],arr[1]]);
 					}
 				}
-				newValue=newValue.slice(0,-1);
-				newValue+="]"
-				localStorage.setItem("checkoutData",newValue);
+				if(newValue)localStorage.setItem("checkoutData",JSON.stringify(newValue));
+				else localStorage.clear();
 
 				deletedProduct[0].remove();
 
 			}
 		};
 
-		// ??noChange
+		// 
 		function updateCartCount(emptyCart, quantity) {
 			if( typeof quantity === 'undefined' ) {
 				var actual = Number(cartCountItems[0].innerText) + 1;
@@ -283,12 +280,12 @@
 			}
 		};
 
-		// ??noChange
+		// 
 		function updateCartTotal(price, bool) {
 			cartTotal.innerText = bool ? (Number(cartTotal.innerText.replace(',','')) + Number(price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : (Number(cartTotal.innerText.replace(',','')) - Number(price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		};
 
-		// ??noChange
+		// 
 		function quickUpdateCart() {
 			var quantity = 0;
 			var price = 0;
