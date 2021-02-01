@@ -69,34 +69,38 @@ const deliveryCharges = 50;
 let grandTotal = 0;
 
 // add items to container based on productId in database
-const container = document.getElementsByClassName("main-leftpane")[0];
-for(let entry of checkoutDataReceived){
 
-    let productId = entry[0];
-    let count = entry[1];
-
-    let item = null;
-
-    for(let i=0;i<itemList.length;i++){
-        if(itemList[i]["productId"]===productId){
-            item =  itemList[i];
-            break;
+(function updateRightPane(){
+    const container = document.getElementsByClassName("main-leftpane")[0];
+    for(let entry of checkoutDataReceived){
+    
+        let productId = entry[0];
+        let count = entry[1];
+    
+        let item = null;
+    
+        for(let i=0;i<itemList.length;i++){
+            if(itemList[i]["productId"]===productId){
+                item =  itemList[i];
+                break;
+            }
         }
+    
+        let nameOfProduct = item["nameOfProduct"];
+        let price = item["price"];
+        // update bagTotal
+        bagTotal += count*Number(price.replace(',',''));
+    
+        let imgSrc = item["imgSrc"];
+        let status = item["status"];
+        let totalPrice = count*(price.replace(',',''));
+        console.log(count,nameOfProduct,price.replace(',',''),imgSrc,status,totalPrice);
+        let statusSrc = (status==="In Stock!" ? statusIcon["okay"] : statusIcon["alert"]);
+        let cartItem = '<div class="cart-item" data-id='+ productId +'><div class="item-image"><img src='+ imgSrc +' width="96%" height="90%" /></div><div class="item-description"><div class="first-line"><div>'+ nameOfProduct +'</div></div><div class="second-line"><div>Qty : '+ count +'</div></div><div class="third-line"><span>'+ status +'</span><span><img src="' + statusSrc + '" height="14vmin" width="14vmin"/></span></div><div class="fourth-line"><div>Price: ₹'+ price +'</div><div>Total : ₹' + count*(price.replace(',','')) + '</div></div><hr width="96%" /><div class="fifth-line"><button class="remove-button">Remove</button><button class="addToWishlist-button">Add to Wishlist</button></div></div></div>';
+        container.insertAdjacentHTML('beforeend',cartItem);
     }
+})();
 
-    let nameOfProduct = item["nameOfProduct"];
-    let price = item["price"];
-    // update bagTotal
-    bagTotal += Number(price.replace(',',''));
-
-    let imgSrc = item["imgSrc"];
-    let status = item["status"];
-    let totalPrice = count*(price.replace(',',''));
-    console.log(count,nameOfProduct,price.replace(',',''),imgSrc,status,totalPrice);
-    let statusSrc = (status==="In Stock!" ? statusIcon["okay"] : statusIcon["alert"]);
-    let cartItem = '<div class="cart-item" data-id='+ productId +'><div class="item-image"><img src='+ imgSrc +' width="96%" height="90%" /></div><div class="item-description"><div class="first-line"><div>'+ nameOfProduct +'</div></div><div class="second-line"><div>Qty : '+ count +'</div></div><div class="third-line"><span>'+ status +'</span><span><img src="' + statusSrc + '" height="14vmin" width="14vmin"/></span></div><div class="fourth-line"><div>Price: ₹'+ price +'</div><div>Total : ₹' + count*(price.replace(',','')) + '</div></div><hr width="96%" /><div class="fifth-line"><button class="remove-button">Remove</button><button class="addToWishlist-button">Add to Wishlist</button></div></div></div>';
-    container.insertAdjacentHTML('beforeend',cartItem);
-}
 
 // update order summary
 const orderSummary = document.getElementsByClassName("prices")[0];
@@ -126,8 +130,9 @@ mainLeftPane.addEventListener("click",(e) => {
             }
         }
         newValue=newValue.slice(0,-1);
-        newValue+="]"
-        localStorage.setItem("checkoutData",newValue);
+        newValue+="]";
+        if(newValue===']') localStorage.clear();
+        else localStorage.setItem("checkoutData",newValue);
 
         //remove the product from the cart
         let cartItems = container.getElementsByClassName("cart-item");
@@ -139,6 +144,7 @@ mainLeftPane.addEventListener("click",(e) => {
             }
         }
         curItem.remove();
+        updateRightPane();
     }
 
     if(e.target.classList.contains('addToWishlist-button')){

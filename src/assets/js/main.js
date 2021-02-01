@@ -11,7 +11,6 @@
   		cartCount = cart[0].getElementsByClassName('cd-cart__count')[0],
   		cartCountItems = cartCount.getElementsByTagName('li'),
   		cartUndo = cart[0].getElementsByClassName('cd-cart__undo')[0],
-  		productId = 0, //this is a placeholder -> use your real product ids instead
   		cartTimeoutId = false,
 		animatingQuantity = false;
 		  
@@ -170,7 +169,6 @@
 					}
 				}
 				localStorage.setItem('checkoutData',JSON.stringify(ind));
-				console.log(localStorage.getItem('checkoutData'));
 			}
 			else{
 				var productAdded = '<li class="cd-cart__product" data-id=' + productId + '><div class="cd-cart__image"><a href="#0"><img src=' + imgSrc + ' alt="placeholder"></a></div><div class="cd-cart__details"><h3 class="truncate"><a href="#0">' + nameOfProd + '</a></h3><h4 class="cd-cart__price">₹' + price + '</h4><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item">Delete</a><div class="cd-cart__quantity"><label for="'+ productId +'">Qty</label><span class="cd-cart__select"><select class="reset" id="'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>';
@@ -190,9 +188,7 @@
 					value+="]";
 				}
 
-				localStorage.setItem(key,value);
-				console.log(localStorage);
-				
+				localStorage.setItem(key,value);				
 			}
 		};
 
