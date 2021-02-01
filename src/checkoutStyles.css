@@ -214,7 +214,7 @@ main {
   padding: 20vh 2vh 0vw 1vw;
   flex-wrap: wrap;
 }
-#prices-header {
+.prices-header {
   font-size: 3vh;
   padding-bottom: 1vh;
 }

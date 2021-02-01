@@ -1,5 +1,5 @@
 (function(){
-  // Add to Cart Interaction - by CodyHouse.co
+  // Add to Cart Interaction 
   var cart = document.getElementsByClassName('js-cd-cart');
 
   if(cart.length > 0) {
@@ -18,17 +18,18 @@
 
 
 		function initCartEvents() {
-			// add products to cart
+			// add products to cart ??noChange
 			for(var i = 0; i < cards.length; i++) {(function(i){
 				cards[i].getElementsByClassName("add-to-cart")[0].addEventListener('click', addToCart);
 			})(i);}
 
-			// open/close cart
+			// open/close cart ??noChange
 			cart[0].getElementsByClassName('cd-cart__trigger')[0].addEventListener('click', function(event){
 				event.preventDefault();
 				toggleCart();
 			});
 			
+			// ??noChange
 			cart[0].addEventListener('click', function(event) {
 				if(event.target == cart[0]) { // close cart when clicking on bg layer
 					toggleCart(true);
@@ -38,7 +39,7 @@
 				}
 			});
 
-			// update product quantity inside cart
+			// update product quantity inside cart ??noChange
 			cart[0].addEventListener('change', function(event) {
 				if(event.target.tagName.toLowerCase() == 'select') quickUpdateCart();
 				//update localStorage
@@ -54,7 +55,7 @@
 				localStorage.setItem('checkoutData',JSON.stringify(newInd));
 			});
 
-			//reinsert product deleted from the cart
+			//reinsert product deleted from the cart ??noChange
 			cartUndo.addEventListener('click', function(event) {
 				if(event.target.tagName.toLowerCase() == 'a') {
 					event.preventDefault();
@@ -72,7 +73,7 @@
 				}
 			});
 
-			// check if localStorage is empty and if not, add items to cart
+			// check if localStorage is empty and if not, add items to cart  ??CHANGE
 			if(localStorage.getItem('checkoutData')){
 				if(animatingQuantity) return;
 				var cartIsEmpty = Util.hasClass(cart[0], 'cd-cart--empty');
@@ -83,9 +84,10 @@
 				for(let arr of ind){
 					let productId = arr[0];
 					//update cart product list
-					let nameOfProd = itemList[productId-1]["nameOfProduct"]; //itemList ia my database object defined in index.js
-					let price = itemList[productId-1]["price"]
-					let imgSrc = itemList[productId-1]["imgSrc"]
+					let nameOfProd = database.get(productId)["nameOfProduct"]; //itemList ia my database object defined in index.js
+					let price = database.get(productId)["price"]
+					let imgSrc = database.get(productId)["imgSrc"]
+					
 					var productAdded = '<li class="cd-cart__product" data-id=' + productId + '><div class="cd-cart__image"><a href="#0"><img src=' + imgSrc + ' alt="placeholder"></a></div><div class="cd-cart__details"><h3 class="truncate"><a href="#0">' + nameOfProd + '</a></h3><h4 class="cd-cart__price">₹' + price + '</h4><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item">Delete</a><div class="cd-cart__quantity"><label for="'+ productId +'">Qty</label><span class="cd-cart__select"><select class="reset" id="'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>';
 					cartList.insertAdjacentHTML('beforeend', productAdded);
 					let itemListTemp = document.getElementsByClassName("cd-cart__product");
@@ -95,8 +97,7 @@
 					//update number of items 
 					updateCartCount(cartIsEmpty,Number(arr[1]));
 					//update total price
-					console.log(Number(arr[1])*Number(itemList[arr[0]-1]["price"].replace(',','')));
-					updateCartTotal(Number(arr[1])*Number(itemList[arr[0]-1]["price"].replace(',','')), true);
+					updateCartTotal(Number(arr[1])*Number(database.get(arr[0])["price"].replace(',','')), true);
 					//show cart
 					Util.removeClass(cart[0], 'cd-cart--empty');
 				}
@@ -106,6 +107,7 @@
 			}
 		};
 
+		// ??noChange
 		function addToCart(event) {
 			event.preventDefault();
 			if(animatingQuantity) return;
@@ -121,6 +123,7 @@
 			Util.removeClass(cart[0], 'cd-cart--empty');
 		};
 
+		// ??noChange
 		function toggleCart(bool) { // toggle cart visibility
 			var cartIsOpen = ( typeof bool === 'undefined' ) ? Util.hasClass(cart[0], 'cd-cart--open') : bool;
 		
@@ -141,22 +144,25 @@
 			}
 		};
 
+		// ??CHANGE
 		function addProduct(productId) { 
-			let nameOfProd = itemList[productId-1]["nameOfProduct"]; //itemList ia my database object defined in index.js
-			let price = itemList[productId-1]["price"]
-			let imgSrc = itemList[productId-1]["imgSrc"]
+			let nameOfProd = database.get(productId)["nameOfProduct"]; //itemList ia my database object defined in index.js
+			let price = database.get(productId)["price"]
+			let imgSrc = database.get(productId)["imgSrc"]
 			
 
 			// check if that product is already in the cart
 			let isProductPresent = false;
 			let selectedCartItem = null;
 			for(let item of cartListItems){
-				if(item.getElementsByClassName("cd-cart__details")[0].getElementsByTagName("a")[0].innerHTML === nameOfProd){
+				console.log("item.dataset.id",item.dataset.id);
+				if(item.dataset.id === productId){
 					isProductPresent = true;
 					selectedCartItem = item;
 					break;
 				}
 			}
+
 			let ind = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('checkoutData'))));
 			if(isProductPresent){
 				selectedCartItem.getElementsByTagName("select")[0].selectedIndex++;
@@ -192,6 +198,7 @@
 			}
 		};
 
+		// ??noChange
 		function removeProduct(product) {
 			if(cartTimeoutId) clearInterval(cartTimeoutId);
 			removePreviousProduct(); // product previously deleted -> definitively remove it from the cart
@@ -215,6 +222,7 @@
 			}, 5000);
 		};
 
+		// ??noChange
 		function removePreviousProduct() { // definitively removed a product from the cart (undo not possible anymore)
 			var deletedProduct = cartList.getElementsByClassName('cd-cart__product--deleted');
 			if(deletedProduct.length > 0 ) {
@@ -239,6 +247,7 @@
 			}
 		};
 
+		// ??noChange
 		function updateCartCount(emptyCart, quantity) {
 			if( typeof quantity === 'undefined' ) {
 				var actual = Number(cartCountItems[0].innerText) + 1;
@@ -274,10 +283,12 @@
 			}
 		};
 
+		// ??noChange
 		function updateCartTotal(price, bool) {
 			cartTotal.innerText = bool ? (Number(cartTotal.innerText.replace(',','')) + Number(price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : (Number(cartTotal.innerText.replace(',','')) - Number(price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		};
 
+		// ??noChange
 		function quickUpdateCart() {
 			var quantity = 0;
 			var price = 0;
