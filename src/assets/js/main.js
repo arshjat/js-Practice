@@ -95,7 +95,7 @@
 
 					lastItem.getElementsByTagName("select")[0].selectedIndex = arr[1]-1; 
 					//update number of items 
-					updateCartCount(cartIsEmpty,Number(arr[1]));
+					updateCartCount(cartIsEmpty,false,Number(arr[1]));
 					//update total price
 					updateCartTotal(Number(arr[1])*Number(database.get(arr[0])["price"].replace(',','')), true);
 					//show cart
@@ -245,9 +245,9 @@
 		};
 
 		// 
-		function updateCartCount(emptyCart, quantity) {
+		function updateCartCount(emptyCart,isStart=false, quantity) {
 			if( typeof quantity === 'undefined' ) {
-				var actual = Number(cartCountItems[0].innerText) + 1;
+				var actual = (isStart ? 0 : Number(cartCountItems[0].innerText)+1);
 				var next = actual + 1;
 				
 				if( emptyCart ) {
