@@ -1,0 +1,17 @@
+.slant{
+    position: absolute;
+    width: 100%;
+    background-color: #f5f5f5;
+    z-index: -1;
+}
+
+
+#up {
+    height: 120vh;
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%);
+}
+
+#down {
+    height: 40vh;
+    -webkit-clip-path: polygon(0% 0%, 100% 15%, 100% 100%, 0% 100%);
+}

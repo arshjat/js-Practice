@@ -1,0 +1,99 @@
+.description-grid {
+    display: grid;
+    grid-template-columns: 5fr 5fr;
+    margin: 0 20%;
+  }
+  
+  .col1 {
+    margin-top: 250px;
+  }
+  
+  .col1 > #row1 {
+    font-size: 80px;
+  }
+  .col1 > #row2 {
+    font-size: 30px;
+    font-weight: lighter;
+  }
+  
+  .col2 {
+    margin-top: 250px;
+    padding: 10% 10% 40% 10%;
+  }
+  
+  .col2 > #pic1 {
+    position: absolute;
+  }
+  .col2 > #pic2 {
+    position: absolute;
+    margin-left: 150px;
+    margin-top: -20px;
+  }
+  
+  section > a {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+  }
+  section > a span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    border-left: 1px solid rgb(105, 105, 105);
+    border-bottom: 1px solid rgb(105, 105, 105);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-animation: scroll-properties 2s infinite;
+    animation: scroll-properties 2s infinite;
+    opacity: 0;
+    box-sizing: border-box;
+    /* z-index: 1; */
+  }
+  section > a > span:nth-of-type(1) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+  }
+  section > a > span:nth-of-type(2) {
+    top: 16px;
+    -webkit-animation-delay: 0.15s;
+    animation-delay: 0.15s;
+  }
+  section > a > span:nth-of-type(3) {
+    top: 32px;
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+  }
+  @-webkit-keyframes scroll-properties {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes scroll-properties {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  #catch-scroll {
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    top: 100%;
+    background-color: black;
+  }
+  
