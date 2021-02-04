@@ -1,9 +1,5 @@
 import './App.css';
-import Header from './components/Header/index';
-import Line from './components/VerticalLine/index';
-import ProductsView from './components/ProductsView/index';
-import LandingPageDescription from './components/LandingPageDescription/index';
-import SlantedBackground from './components/SlantedBackground/index';
+import {Header,LandingPageDescription,Line,ProductsView,SlantedBackground} from './components/index';
 function App() {
   return (
   <>
