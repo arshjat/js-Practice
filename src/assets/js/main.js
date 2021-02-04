@@ -73,7 +73,7 @@
 				}
 			});
 
-			// check if localStorage is empty and if not, add items to cart  
+			// On page render, check if localStorage is empty and if not (i.e. we are coming from checkout.html or is this our first time) ,and if elements are present, add items to cart  
 			if(localStorage.getItem('checkoutData')){
 				if(animatingQuantity) return;
 				var cartIsEmpty = Util.hasClass(cart[0], 'cd-cart--empty');
@@ -107,7 +107,7 @@
 			}
 		};
 
-		// 
+		// wrapper function that initiates various add and update methods 
 		function addToCart(event) {
 			event.preventDefault();
 			if(animatingQuantity) return;
@@ -144,7 +144,7 @@
 			}
 		};
 
-		// 
+		// adds the product to cart to render and updates localStorage
 		function addProduct(productId) { 
 			let nameOfProd = database.get(productId)["nameOfProduct"]; //itemList ia my database object defined in index.js
 			let price = database.get(productId)["price"]
@@ -164,7 +164,10 @@
 			}
 
 			let ind = JSON.parse(localStorage.getItem('checkoutData'));
+			
+			// if product is already present, then increase the selected index corresponding to the item and update localStorage
 			if(isProductPresent){
+				//increase selectedIndex
 				selectedCartItem.getElementsByTagName("select")[0].selectedIndex++;
 				
 				// update in localStorage also
@@ -178,6 +181,7 @@
 				localStorage.setItem('checkoutData',JSON.stringify(newInd));
 			}
 			else{
+				// else make a new cart item and if local storage is initially empty, then make a new array otherwise push to already existing one
 				var productAdded = '<li class="cd-cart__product" data-id=' + productId + '><div class="cd-cart__image"><a href="#0"><img src=' + imgSrc + ' alt="placeholder"></a></div><div class="cd-cart__details"><h3 class="truncate"><a href="#0">' + nameOfProd + '</a></h3><h4 class="cd-cart__price">₹' + price + '</h4><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item">Delete</a><div class="cd-cart__quantity"><label for="'+ productId +'">Qty</label><span class="cd-cart__select"><select class="reset" id="'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>';
 				cartList.insertAdjacentHTML('beforeend', productAdded);
 
@@ -196,7 +200,7 @@
 			}
 		};
 
-		// 
+		// add deleted class to the cart item so that undo operation is possible and remove from cart
 		function removeProduct(product) {
 			if(cartTimeoutId) clearInterval(cartTimeoutId);
 			removePreviousProduct(); // product previously deleted -> definitively remove it from the cart
@@ -220,8 +224,8 @@
 			}, 5000);
 		};
 
-		// 
-		function removePreviousProduct() { // definitively removed a product from the cart (undo not possible anymore)
+		// permanently remove a product from the cart (undo not possible anymore)
+		function removePreviousProduct() { 
 			var deletedProduct = cartList.getElementsByClassName('cd-cart__product--deleted');
 			if(deletedProduct.length > 0 ) {
 				
@@ -244,7 +248,7 @@
 			}
 		};
 
-		// 
+		// update cart count
 		function updateCartCount(emptyCart,isStart=false, quantity) {
 			if( typeof quantity === 'undefined' ) {
 				var actual = (isStart ? 0 : Number(cartCountItems[0].innerText)+1);
@@ -280,12 +284,12 @@
 			}
 		};
 
-		// 
+		// updates cart total
 		function updateCartTotal(price, bool) {
 			cartTotal.innerText = bool ? (Number(cartTotal.innerText.replace(',','')) + Number(price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : (Number(cartTotal.innerText.replace(',','')) - Number(price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		};
 
-		// 
+		// Updates cart count and cart total
 		function quickUpdateCart() {
 			var quantity = 0;
 			var price = 0;
