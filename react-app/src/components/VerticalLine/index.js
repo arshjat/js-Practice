@@ -1,8 +1,8 @@
 import './index.css';
 export default function Line(){
     return (
-        <div class="line">
-            <div class="inner" />
+        <div className="line">
+            <div className="inner" />
         </div>
     );
 }

@@ -1,0 +1,139 @@
+ /* properties of parent class */
+.cart-item {
+    position: relative;
+    opacity: 0;
+    -webkit-transform: translateX(80px);
+    -ms-transform: translateX(80px);
+    transform: translateX(80px);
+    transition: opacity 0s 0.2s, -webkit-transform 0s 0.2s;
+    transition: opacity 0s 0.2s, transform 0s 0.2s;
+    transition: opacity 0s 0.2s, transform 0s 0.2s, -webkit-transform 0s 0.2s;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .cart-item:not(:last-of-type) {
+    margin-bottom: 12px;
+  }
+  .cart-item a {
+    text-decoration: none;
+  }
+
+/* Properties of item image  */
+.item-image {
+    display: inline-block;
+    width: 20%;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    }
+.item-image img {
+    display: block;
+    width : 100%;
+}
+@media (min-width: 64rem) {
+.item-image {
+        width: 20%;
+    }
+}
+
+/* Properties of item description body */
+.item-description {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    padding-left: 0.6em;
+  }
+.item-description h3 {
+    font-weight: bold;
+    width: 70%;
+    font-size: 0.95833em;
+}
+.item-description h3 a {
+    color: hsl(210, 31%, 24%);
+}
+.item-description h3 a:hover {
+    color: hsl(204, 73%, 52%);
+}
+
+/* Properties of item price */
+.item-price {
+    width: 30%;
+    text-align: right;
+    font-size: 0.91666em;
+    font-weight: bold;
+    line-height: 100%;
+    text-align: center;
+}
+
+/* Properties of action container */
+.actions {
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 0.76388em;
+}
+
+/* Quantity label */
+.quantity {
+    color: hsl(210, 31%, 28.8%);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.quantity {
+    display: -ms-flexbox;
+    display: flex;
+}
+.quantity label {
+    margin-right: 0.375em;
+}
+
+/* Properties of delete item button */
+.delete-item-button {
+  margin-right: 0.75em;
+}
+.delete-item-button:hover {
+  color: hsl(7, 80%, 56%);
+}
+
+/* Properties of select quantity option */
+.select-quantity {
+    position: relative;
+  }
+  .select-quantity select {
+    position: relative;
+    padding: 0 1.25em 0 0;
+    cursor: pointer;
+    color: currentColor;
+  }
+  .select-quantity select:focus {
+    outline: none;
+    color: hsl(210, 31%, 24%);
+    box-shadow: 0 1px 0 currentColor;
+  }
+  .select-quantity select::-ms-expand {
+    display: none;
+  }
+  .select-quantity .icon {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    display: block;
+    width: 12px;
+    height: 12px;
+    color: currentColor;
+    pointer-events: none;
+  }
+  @media (min-width: 64rem) {
+    .select-quantity select {
+      padding-right: 0.75em;
+      padding-right: var(--space-sm);
+    }
+  }

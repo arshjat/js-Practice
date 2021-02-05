@@ -3,8 +3,8 @@ import descriptionImg1 from './pic1.svg';
 import descriptionImg2 from './pic2.svg';
 export default function LandingPageDescription(){
     return (
-        <section class="description-grid">
-            <div class="col1">
+        <section className="description-grid">
+            <div className="col1">
             <div id="row1">
                 <p>
                 Welcome to Sprinklr Mart!
@@ -17,7 +17,7 @@ export default function LandingPageDescription(){
                 </article>
             </div>
             </div>
-            <div class="col2">
+            <div className="col2">
             <div id="pic1">
                 <img src={descriptionImg1} width="450px" height="450px" alt="svg-image1" />
             </div>
@@ -26,8 +26,7 @@ export default function LandingPageDescription(){
             </div>
             </div>
 
-            <a href="#catch-scroll" onclick="this.style.display = 'none'"
-            ><span></span><span></span><span></span
+            <a href="#catch-scroll" onClick={() => this.style.display = 'none'}><span></span><span></span><span></span
             ></a>
         </section>
     );

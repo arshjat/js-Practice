@@ -7,11 +7,11 @@ function App() {
     <SlantedBackground id="up" />
     <LandingPageDescription />
     <div className="main-page-grid">
-      <Line />
-      {/* element to catch scroll */}
-      <div id="catch-scroll"></div>
-      <ProductsView />
-      <Line />
+        <Line />
+        {/* element to catch scroll */}
+        <div id="catch-scroll" />
+        <ProductsView />
+        <Line />
     </div>
     <SlantedBackground id="down" />
   </>
