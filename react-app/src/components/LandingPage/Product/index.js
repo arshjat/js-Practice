@@ -1,5 +1,5 @@
 import './index.css';
-import {database} from '../../database/index'; 
+import {database} from '../../../database'; 
 import React from 'react';
 
 export default React.memo( function Product({productId, onClick}){

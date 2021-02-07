@@ -1,5 +1,5 @@
 import './index.css';
-import {listOfProductIds} from '../../database/index'; 
+import {listOfProductIds} from '../../../database/index'; 
 import Product from '../Product/index';
 import {useState, useCallback} from 'react';
 import Cart from '../Cart/index';

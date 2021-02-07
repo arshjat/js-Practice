@@ -1,20 +1,16 @@
 import './App.css';
-import {Header,LandingPageDescription,Line,ProductsView,SlantedBackground} from './components/index';
+import {Header, LandingPage,CheckoutPage} from './components/index';
+
+import {BrowserRouter as Router, Route,  Switch} from 'react-router-dom';
 function App() {
   return (
-  <>
+  <Router>
     <Header />
-    <SlantedBackground id="up" />
-    <LandingPageDescription />
-    <div className="main-page-grid">
-        <Line />
-        {/* element to catch scroll */}
-        <div id="catch-scroll" />
-        <ProductsView />
-        <Line />
-    </div>
-    <SlantedBackground id="down" />
-  </>
+    <Switch>
+      <Route path="/" exact component={LandingPage}/>
+      <Route path="/checkout" exact component = {CheckoutPage} />
+    </Switch>
+  </Router>
   );
 }
 

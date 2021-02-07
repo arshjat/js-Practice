@@ -1,5 +1,5 @@
 import './index.css';
-import {database} from '../../../database/index';
+import {database} from '../../../../database/index';
 import {useEffect, useMemo} from 'react';
 
 export default function CartItem ({productId, count, onSelectChange, onDeleteItem}) {

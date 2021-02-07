@@ -1,8 +1,8 @@
 import './index.css';
 import CartItem from './CartItem/index';
 import React, {useEffect, useState, useRef} from 'react';
-import {database} from '../../database/index'; 
-
+import {database} from '../../../database/index'; 
+import {Link} from 'react-router-dom';
 export default React.memo(function Cart({cartItemsList, toggleCart, onSelectChange, onDeleteItem}){
 
     const [count,setCount] = useState();
@@ -53,36 +53,36 @@ export default React.memo(function Cart({cartItemsList, toggleCart, onSelectChan
                             ))}
                         </ul>
                     </div>
-
-                    <footer className="cart-footer" onClick={()=>{
-                        localStorage.setItem("checkoutData",JSON.stringify(cartItemsList));
-                        window.location.href = "./checkout";
-                    }}>
-                    <a href="#0" className="checkout checkoutUtil">
-                    <em
-                        >Checkout - ₹<span>{totalPrice.current}</span>
-                        <svg className="icon icon--sm" viewBox="0 0 24 24">
-                        <g fill="none" stroke="currentColor">
-                            <line
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            x1="3"
-                            y1="12"
-                            x2="21"
-                            y2="12"
-                            />
-                            <polyline
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            points="15,6 21,12 15,18 "
-                            />
-                        </g>
-                        </svg>
-                    </em>
-                    </a>
-                </footer>
+                    <Link to='/checkout'>
+                        <footer className="cart-footer" onClick={()=>{
+                                localStorage.setItem("checkoutData",JSON.stringify(cartItemsList));
+                            }}>
+                            <div className="checkout checkoutUtil">
+                                <em
+                                    >Checkout - ₹<span>{totalPrice.current}</span>
+                                    <svg className="icon icon--sm" viewBox="0 0 24 24">
+                                        <g fill="none" stroke="currentColor">
+                                            <line
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            x1="3"
+                                            y1="12"
+                                            x2="21"
+                                            y2="12"
+                                            />
+                                            <polyline
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            points="15,6 21,12 15,18 "
+                                            />
+                                        </g>
+                                    </svg>
+                                </em>
+                            </div>
+                        </footer>
+                    </Link>
                 </div>
             </div>
         </div>
