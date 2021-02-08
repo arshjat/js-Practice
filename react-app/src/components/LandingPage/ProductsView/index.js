@@ -1,10 +1,10 @@
 import './index.css';
 import {listOfProductIds} from '../../../database/index'; 
 import Product from '../Product/index';
-import {useState, useCallback, useEffect} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import Cart from '../Cart/index';
 
-export default function ProductsView(){
+export default React.memo(function ProductsView(){
     
     const [itemList,SetItemList] = useState([]);
     
@@ -64,4 +64,4 @@ export default function ProductsView(){
             <Cart cartItemsList={itemList} toggleCart={onClickCart} onSelectChange={onSelectChange} onDeleteItem={onDeleteItem}/>
         </>
     ); 
-}
+})

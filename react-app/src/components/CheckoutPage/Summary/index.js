@@ -1,5 +1,6 @@
 import './index.css';
-export default function Summary({bagTotal}){
+import React from 'react';
+export default React.memo(function Summary({bagTotal}){
     
     return (
             <div className="summary-details">
@@ -43,4 +44,4 @@ export default function Summary({bagTotal}){
                 </div>
             </div>
     );
-}
+})

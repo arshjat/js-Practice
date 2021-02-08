@@ -1,8 +1,8 @@
 import './index.css';
 import {database} from '../../../../database/index';
-import {useEffect, useMemo} from 'react';
+import React, {useEffect, useMemo} from 'react';
 
-export default function CartItem ({productId, count, onSelectChange, onDeleteItem}) {
+export default React.memo(function CartItem ({productId, count, onSelectChange, onDeleteItem}) {
     const info = useMemo (()=>{
         return {
             "nameOfProd" : database.get(productId)["nameOfProduct"],
@@ -50,4 +50,4 @@ export default function CartItem ({productId, count, onSelectChange, onDeleteIte
         </li>
         </>
     );
-};
+});
