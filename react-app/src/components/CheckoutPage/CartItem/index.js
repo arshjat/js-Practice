@@ -21,23 +21,23 @@ export default React.memo(function CartItem({productId, count, onDeleteHandler})
                     <img src={info["imgSrc"]} width="96%" height="90%" alt="product"/>
                 </div>
                 <div className="item-description-ck">
-                    <div className="first-line">
+                    <div className="product-name">
                         <div>{info["nameOfProd"]}</div>
                     </div>
-                    <div className="second-line">
+                    <div className="product-qty">
                         <div>Qty : {count}</div>
                     </div>
-                    <div className="third-line">
+                    <div className="product-status">
                         <span>{info["status"]}</span>
                         <span>
                             <img src={info["status"]==="In Stock!" ? statusIcon["okay"] : statusIcon["alert"]} height="14vmin" width="14vmin" alt="status"/>
                         </span>
                     </div>
-                    <div className="fourth-line">
+                    <div className="product-price">
                         <div>Price: ₹{info["price"]}</div>
                         <div>Total : ₹{count*(info["price"].replace(',',''))}</div>
                     </div><hr width="96%" />
-                    <div className="fifth-line">
+                    <div className="product-buttons">
                         <button className="remove-button-ck" data-id={productId} onClick={onDeleteHandler}>Remove</button>
                         <button className="addToWishlist-button-ck">Add to Wishlist</button>
                     </div>

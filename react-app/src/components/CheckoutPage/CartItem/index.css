@@ -27,29 +27,29 @@
   padding-bottom: 1vh;
   line-height: 2.1vmin;
 }
-.cart-item-ck .item-description-ck .first-line {
+.cart-item-ck .item-description-ck .product-name {
   font-size: 3.5vmin;
   flex: 2;
   line-height: 100%;
 }
-.cart-item-ck .item-description-ck .second-line {
+.cart-item-ck .item-description-ck .product-qty {
   flex: 1;
 }
-.cart-item-ck .item-description-ck .third-line {
+.cart-item-ck .item-description-ck .product-status {
   flex: 1;
 }
-.cart-item-ck .item-description-ck .fourth-line {
+.cart-item-ck .item-description-ck .product-price {
   display: flex;
   justify-content: space-between;
   flex: 1;
 }
-.cart-item-ck .item-description-ck .fifth-line {
+.cart-item-ck .item-description-ck .product-buttons {
   flex: 2;
   display: flex;
   justify-content: space-between;
 }
 
-.cart-item-ck .item-description-ck .fifth-line .remove-button-ck {
+.cart-item-ck .item-description-ck .product-buttons .remove-button-ck {
   color: rgb(184, 0, 0);
   border-color: rgb(184, 0, 0);
   border-width: 0.1vmin;
@@ -58,7 +58,7 @@
   font-size: 1.5vmin;
 }
 
-.cart-item-ck .item-description-ck .fifth-line .addToWishlist-button-ck {
+.cart-item-ck .item-description-ck .product-buttons .addToWishlist-button-ck {
   color: rgb(53, 53, 53);
   border-color: rgb(53, 53, 53);
   border-width: 0.1vmin;
