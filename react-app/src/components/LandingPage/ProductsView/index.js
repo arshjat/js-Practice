@@ -1,7 +1,7 @@
 import './index.css';
 import {listOfProductIds} from '../../../database/index'; 
 import Product from '../Product/index';
-import {useState, useCallback} from 'react';
+import {useState, useCallback, useEffect} from 'react';
 import Cart from '../Cart/index';
 
 export default function ProductsView(){
@@ -43,6 +43,14 @@ export default function ProductsView(){
         const productId = e.target.dataset.id;
         SetItemList(prevList => prevList.filter(item=> item[0]!==productId));
     }
+
+    useEffect(()=>{
+        const itemListInitial = localStorage.getItem("checkoutData");
+        if(!itemListInitial) return;
+        else{
+            SetItemList(JSON.parse(itemListInitial));
+        }
+    },[]);
     
     return (
         <>

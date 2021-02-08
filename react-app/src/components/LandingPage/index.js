@@ -2,7 +2,7 @@ import './index.css';
 import SlantedBackground from './SlantedBackground/index';
 import LandingPageDescription from './LandingPageDescription/index';
 import ProductsView from './ProductsView/index';
-import Line from './VerticalLine/index';
+import Line from '../VerticalLine/index';
 
 export default function LandingPage(){
     return (
