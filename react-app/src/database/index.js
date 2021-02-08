@@ -1,7 +1,4 @@
-
-
-// Database Structure
-const itemList = [
+const mapIdToInfo = [
     [
         "1",
         {   
@@ -77,27 +74,5 @@ const itemList = [
     ]
 ];
 
-const listOfProductIds = ["1","2","3","4","5","6","7","8"];
-const database = new Map(itemList);
-// 
-
-
-
-// dynamically add items to cart corresponding to the items in database
-const cartContainer = document.getElementsByClassName("grid-item container")[0];
-for(let productId of listOfProductIds){
-    let item = database.get(productId);
-    let cartItem = '<div class="li" data-id=' + productId + '><div class="prod-row1"><div class="prod-img"><img src='+ item["imgSrc"] +' height="auto" width="100%" /></div></div><div class="prod-row2"><div class="title">'+ item["nameOfProduct"] +'</div>  <hr /><span class="price"><span class="only-text">Price : </span><span class="value">₹' + item["price"] + '/-</span></span><span class="add-to-cart">Add to cart</span></div></div>';
-    cartContainer.insertAdjacentHTML('beforeend',cartItem);
-}
-// 
-
-
-
-// open checkout page onclick on any of checkout buttons
-let checkOutButtons = document.getElementsByClassName("checkoutUtil")
-for(let button of checkOutButtons) button.addEventListener("click",()=>window.location.href="checkout.html");
-// 
-
-
-
+export const listOfProductIds = ["1","2","3","4","5","6","7","8"];
+export const database = new Map(mapIdToInfo);

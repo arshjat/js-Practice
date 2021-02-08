@@ -3,424 +3,68 @@
   <head>
     <title>Ecommerce Website</title>
     <meta charset="UTF-8" />
-    <script src="src/index.js"></script>
+    <script src="./src/index.js" defer></script>
+    <script src="./src/assets/js/util.js" defer></script>
+    <!-- util functions included in the CodyHouse framework -->
+    <script src="./src/assets/js/main.js" defer></script>
+    <link rel="stylesheet" href="./src/styles.css" />
   </head>
 
   <body>
     <!-- header -->
-    <div class="header">
-      <p>Sprinklr Mart !</p>
-    </div>
+    <header>
+      <div class="logo">
+        <img src="src/images/sprinklr-logo.png" width="65px" height="65px" />
+      </div>
+      <div>Mart</div>
+      <div class="checkout checkoutUtil">Checkout</div>
+    </header>
 
     <!-- slanted background -->
     <div class="slanted" id="up"></div>
 
+    <main>
+      <section class="description-grid">
+        <div class="col1">
+          <div id="row1">
+            <p>
+              Welcome to Sprinklr Mart!
+            </p>
+          </div>
+          <div id="row2">
+            <article>
+              We have a large variety of day-to-day items we are sure you'll
+              find useful.
+            </article>
+          </div>
+        </div>
+        <div class="col2">
+          <div id="pic1">
+            <img src="src/images/pic1.svg" width="450px" height="450px" />
+          </div>
+          <div id="pic2">
+            <img src="src/images/pic2.svg" width="500px" height="500px" />
+          </div>
+        </div>
+
+        <a href="#catch-scroll" onclick="this.style.display = 'none'"
+          ><span></span><span></span><span></span
+        ></a>
+      </section>
+    </main>
     <!-- body -->
-    <div class="grid-container">
+    <section class="grid-container">
       <!-- left line -->
       <div class="grid-item">
         <div class="line">
           <div class="inner"></div>
         </div>
       </div>
-<!-- abcd -->
+      <!-- element to catch scroll -->
+      <div id="catch-scroll"></div>
+
       <div class="grid-item container">
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
-        <div class="li">
-          <div class="title">Product X</div>
-          <hr />
-          <div class="info">
-            <ul>
-              <li>Something</li>
-              <li>Something Else</li>
-              <li>Some more</li>
-            </ul>
-          </div>
-        </div>
+        <!-- Here the cart items will be listed from database -->
       </div>
       <!--right line -->
       <div class="grid-item">
@@ -428,9 +72,68 @@
           <div class="inner"></div>
         </div>
       </div>
+    </section>
+
+    <!-- cart -->
+    <div class="cd-cart cd-cart--empty js-cd-cart">
+      <a href="#0" class="cd-cart__trigger text-replace">
+        
+        <ul class="cd-cart__count">
+          <!-- cart items count -->
+          <li>0</li>
+          <li>0</li>
+        </ul>
+        <!-- .cd-cart__count -->
+      </a>
+
+      <div class="cd-cart__content">
+        <div class="cd-cart__layout">
+          <header class="cd-cart__header">
+            <h2>Cart</h2>
+            <span class="cd-cart__undo"
+              >Item removed. <a href="#0">Undo</a></span
+            >
+          </header>
+
+          <div class="cd-cart__body">
+            <ul>
+              <!-- products added to the cart will be inserted here using JavaScript -->
+            </ul>
+          </div>
+
+          <footer class="cd-cart__footer">
+            <a href="#0" class="cd-cart__checkout checkoutUtil">
+              <em
+                >Checkout - ₹<span>0</span>
+                <svg class="icon icon--sm" viewBox="0 0 24 24">
+                  <g fill="none" stroke="currentColor">
+                    <line
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      x1="3"
+                      y1="12"
+                      x2="21"
+                      y2="12"
+                    />
+                    <polyline
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      points="15,6 21,12 15,18 "
+                    />
+                  </g>
+                </svg>
+              </em>
+            </a>
+          </footer>
+        </div>
+      </div>
+      <!-- .cd-cart__content -->
     </div>
+    <!-- cd-cart -->
 
     <!-- slanted background -->
-    <div class="slanted" id="down"></div>
+    <footer class="slanted" id="down"></footer>
   </body>
 </html>
