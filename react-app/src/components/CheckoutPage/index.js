@@ -2,12 +2,15 @@ import './index.css';
 
 import Summary from './Summary/index';
 import CartItemsContainer from './CartItemsContainer/index';
-import {useState,useEffect,useCallback,useMemo} from 'react';
+import {useCallback,useMemo} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import {database} from '../../database/index';
 import Line from '../VerticalLine/index';
+import actions from '../../store/actions/index';
 export default function CheckoutPage(){
     
-    const [itemList,setItemList] = useState(JSON.parse(localStorage.getItem("checkoutData")));
+    const itemList = useSelector(state => state.cart);
+    const dispatch = useDispatch();
 
     const bagTotal = useMemo(()=>{
         return itemList.reduce((sum,item)=>{
@@ -15,14 +18,10 @@ export default function CheckoutPage(){
         },0)
     },[itemList]);
 
-    useEffect(()=>{
-        return () => localStorage.setItem("checkoutData",JSON.stringify(itemList));
-    },[itemList]);
-
     const onDeleteHandler = useCallback((e)=>{
-        const deletedProductId = e.target.dataset.id;
-        setItemList(prevList => prevList.filter(item => item[0]!==deletedProductId));
-    },[]);
+        const productId = e.target.dataset.id;
+        dispatch(actions.removeItem(productId));
+    },[dispatch]);
 
     return (
         <>

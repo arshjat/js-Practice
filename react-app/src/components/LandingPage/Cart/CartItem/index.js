@@ -1,6 +1,6 @@
 import './index.css';
 import {database} from '../../../../database/index';
-import React, {useEffect, useMemo} from 'react';
+import React, {useMemo} from 'react';
 
 export default React.memo(function CartItem ({productId, count, onSelectChange, onDeleteItem}) {
     const info = useMemo (()=>{
@@ -10,11 +10,6 @@ export default React.memo(function CartItem ({productId, count, onSelectChange, 
             "imgSrc" : database.get(productId)["imgSrc"]
         };
     },[productId]);
-
-    useEffect(()=>{
-        
-        
-    },[productId,count]);
 
     return (
         <>
