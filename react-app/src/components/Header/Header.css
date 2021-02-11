@@ -52,6 +52,7 @@ header {
     text-align-last: right;
     width:100%;
     height: 4vh;
+    font-size: 2vh;
 }
 
 .reset:focus {

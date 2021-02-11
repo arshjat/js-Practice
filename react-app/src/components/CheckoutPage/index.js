@@ -20,7 +20,7 @@ export default function CheckoutPage(){
 
     const onDeleteHandler = useCallback((e)=>{
         const productId = e.target.dataset.id;
-        dispatch(actions.removeItem(productId));
+        dispatch(actions.cartActions.removeItem(productId));
     },[dispatch]);
 
     return (

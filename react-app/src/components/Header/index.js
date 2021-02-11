@@ -1,11 +1,17 @@
 import './Header.css';
 import logo from './sprinklr-logo.png';
-import {useState, useEffect} from 'react';
+import { useState, useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import actions from '../../store/actions/index';
+
 export default function Header () {
     
     const [countryList,setCountryList] = useState([]);
-    const [flag,setFlag] = useState("https://restcountries.eu/data/ind.svg");
-    const [selectedCountry,setSelectedCountry] = useState("India")
+
+    const selectedCountry = useSelector(state => state.country.name);
+    const flag = useSelector(state => state.country.flag);
+    const dispatch = useDispatch();
+
     useEffect( ()=> {
         fetch("https://restcountries.eu/rest/v2/all")
         .then(async res=> await res.json())
@@ -15,8 +21,7 @@ export default function Header () {
     
     const onChangeCountry = (e)=>{
         const newCountry = countryList[e.target.selectedIndex];
-        setFlag(newCountry.flag);
-        setSelectedCountry(newCountry.name);
+        dispatch(actions.countryActions.changeCountryInfo(newCountry.name,newCountry.flag));
     };
 
     return (

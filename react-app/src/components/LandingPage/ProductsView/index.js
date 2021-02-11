@@ -16,7 +16,7 @@ export default function ProductsView(){
     // useCallback is used so that the same reference is passed always.
     const onClickButton = useCallback((e)=>{
         const productId = e.target.dataset.id;
-        dispatch(actions.addItem(productId));
+        dispatch(actions.cartActions.addItem(productId));
     },[dispatch]);
 
     const onClickCart = useCallback((e)=>{
@@ -28,12 +28,12 @@ export default function ProductsView(){
     const onSelectChange = useCallback((e) =>{
         const productId = e.target.dataset.id;
         const newCount = e.target.selectedIndex+1;
-        dispatch(actions.updateCount(productId,newCount));
+        dispatch(actions.cartActions.updateCount(productId,newCount));
     },[dispatch]);
 
     const onDeleteItem = useCallback(e => {
         const productId = e.target.dataset.id;
-        dispatch(actions.removeItem(productId));
+        dispatch(actions.cartActions.removeItem(productId));
     },[dispatch]);
 
     const products = [];
