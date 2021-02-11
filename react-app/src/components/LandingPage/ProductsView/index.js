@@ -1,14 +1,17 @@
 import './index.css';
-import {listOfProductIds} from '../../../database/index'; 
+import {database} from '../../../database/index'; 
 import Product from '../Product/index';
 import React, {useCallback} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import Cart from '../Cart/index';
 import actions from '../../../store/actions/index';
+
+const getCartItem = (state) => state.cart; 
+
 export default function ProductsView(){
     
     // const [itemList,SetItemList] = useState([]);
-    const itemList = useSelector(state => state.cart)
+    const itemList = useSelector(getCartItem)
     const dispatch = useDispatch();
     // useCallback is used so that the same reference is passed always.
     const onClickButton = useCallback((e)=>{
@@ -32,13 +35,15 @@ export default function ProductsView(){
         const productId = e.target.dataset.id;
         dispatch(actions.removeItem(productId));
     },[dispatch]);
-    
+
+    const products = [];
     return (
         <>
             <div className="container">
-                {listOfProductIds.map((productId) => (
-                    <Product key={productId} productId={productId} onClick={onClickButton}/>
+                {database.forEach((_, productId) => (
+                    products.push(<Product key={productId} productId={productId} onClick={onClickButton}/>)
                 ))}
+                {products}
             </div>
 
             {/*render cart*/}
