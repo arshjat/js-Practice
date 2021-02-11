@@ -25,7 +25,6 @@ export default React.memo(function Cart({cartItemsList, toggleCart, onSelectChan
             totalPrice.current += Number(database.get(item[0])["price"].replace(',',''))*item[1];
         });
         setCount(totalCount);
-        console.log("total checkout price : ",totalPrice.current);
     },[cartItemsList])
 
 
