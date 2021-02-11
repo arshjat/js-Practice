@@ -4,11 +4,12 @@ import { useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import actions from '../../store/actions/index';
 
+const selectorFn = state => state.country.name;
+
 export default function Header () {
     
     const [countryList,setCountryList] = useState([]);
-
-    const selectedCountry = useSelector(state => state.country.name);
+    const selectedCountry = useSelector(selectorFn);
     const flag = useSelector(state => state.country.flag);
     const dispatch = useDispatch();
 
