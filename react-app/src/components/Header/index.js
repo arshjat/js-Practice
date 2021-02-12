@@ -15,7 +15,7 @@ export default function Header () {
 
     useEffect( ()=> {
         fetch("https://restcountries.eu/rest/v2/all")
-        .then(async res=> await res.json())
+        .then(res => res.json())
         .then(data => setCountryList(data))
         .catch(err => console.log("got this error while fetching data",err));
     },[]);
