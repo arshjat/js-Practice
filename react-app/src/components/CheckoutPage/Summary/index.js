@@ -1,6 +1,7 @@
 import './index.css';
 import React from 'react';
-export default React.memo(function Summary({bagTotal}){
+import PropTypes from 'prop-types';
+function Summary({bagTotal}){
     
     return (
             <div className="summary-details">
@@ -44,4 +45,10 @@ export default React.memo(function Summary({bagTotal}){
                 </div>
             </div>
     );
-})
+}
+
+Summary.propTypes = {
+    bagTotal : PropTypes.number.isRequired
+}
+
+export default React.memo(Summary);

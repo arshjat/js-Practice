@@ -1,8 +1,9 @@
 import './index.css';
 import {database} from '../../../database'; 
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default React.memo( function Product({productId, onClick}){
+function Product({productId, onClick}){
     return (
         <div className="product" data-id={productId}>
             <div className="product-image-container">
@@ -21,4 +22,12 @@ export default React.memo( function Product({productId, onClick}){
             </div>
         </div>
     );
-})
+}
+
+
+Product.propTypes = {
+    productId : PropTypes.string.isRequired,
+    onClick : PropTypes.func.isRequired
+}
+
+export default React.memo(Product);

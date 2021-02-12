@@ -3,7 +3,9 @@ import CartItem from './CartItem/index';
 import React, {useEffect, useState, useRef} from 'react';
 import {database} from '../../../database/index'; 
 import {Link} from 'react-router-dom';
-export default React.memo(function Cart({cartItemsList, toggleCart, onSelectChange, onDeleteItem}){
+import PropTypes from 'prop-types';
+
+function Cart({cartItemsList, toggleCart, onSelectChange, onDeleteItem}){
 
     const [count,setCount] = useState();
     const totalPrice = useRef(0); 
@@ -87,4 +89,16 @@ export default React.memo(function Cart({cartItemsList, toggleCart, onSelectChan
         </div>
         </>
     );
-});
+};
+
+Cart.propTypes = {
+    cartItemsList : PropTypes.arrayOf([
+        PropTypes.string,
+        PropTypes.number
+    ]).isRequired,
+    toggleCart : PropTypes.func.isRequired, 
+    onSelectChange : PropTypes.func.isRequired, 
+    onDeleteItem : PropTypes.func.isRequired
+}
+
+export default React.memo(Cart);

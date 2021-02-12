@@ -10,7 +10,6 @@ const getCartItem = (state) => state.cart;
 
 export default function ProductsView(){
     
-    // const [itemList,SetItemList] = useState([]);
     const itemList = useSelector(getCartItem)
     const dispatch = useDispatch();
     // useCallback is used so that the same reference is passed always.
