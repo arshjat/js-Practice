@@ -37,6 +37,13 @@
     font-size: 25px;
     font-weight: lighter;
   }
+
+  .product .name-of-product:hover {
+    font-size: 25px;
+    font-weight: normal;
+    cursor: pointer;
+  }
+
   
   /* lower part of product window */
  .product .price-container {
