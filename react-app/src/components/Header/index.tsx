@@ -4,13 +4,13 @@ import { useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import actions from '../../store/actions/index';
 
-const selectorFn = state => state.country.name;
+const selectorFn = (state: {country: {name: string}}):string => state.country.name;
 
-export default function Header () {
+export default function Header():React.ReactNode {
     
     const [countryList,setCountryList] = useState([]);
     const selectedCountry = useSelector(selectorFn);
-    const flag = useSelector(state => state.country.flag);
+    const flag = useSelector((state: {country: {flag: string}}) => state.country.flag);
     const dispatch = useDispatch();
 
     useEffect( ()=> {
@@ -20,8 +20,11 @@ export default function Header () {
         .catch(err => console.log("got this error while fetching data",err));
     },[]);
     
-    const onChangeCountry = (e)=>{
-        const newCountry = countryList[e.target.selectedIndex];
+    const onChangeCountry = (e:React.ChangeEvent<HTMLSelectElement>): void =>{
+        const newCountry:{
+            name : string,
+            flag : string
+        } = countryList[e.target.selectedIndex];
         dispatch(actions.countryActions.changeCountryInfo(newCountry.name,newCountry.flag));
     };
 
@@ -36,7 +39,7 @@ export default function Header () {
             <div id="country-select">
                 <div className="country-name">
                     <select className="reset" value = {selectedCountry} onChange={onChangeCountry}>
-                        {countryList.map(item => (
+                        {countryList.map((item: {name: string}) => (
                             <option key={item.name} value={item.name}>{item.name}</option>
                         ))}
                     </select>
