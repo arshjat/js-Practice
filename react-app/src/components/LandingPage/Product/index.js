@@ -3,7 +3,7 @@ import {database} from '../../../database';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Product({productId, onClick}){
+function Product({productId, onClickButton, onClickTitle}){
     return (
         <div className="product" data-id={productId}>
             <div className="product-image-container">
@@ -12,13 +12,13 @@ function Product({productId, onClick}){
                 </div>
             </div>
             <div className="product-information-container">
-                <div className="name-of-product">{database.get(productId)["nameOfProduct"]}</div>  
+                <div className="name-of-product" onClick={onClickTitle}>{database.get(productId)["nameOfProduct"]}</div>  
                 <hr />
                 <span className="price-container">
                     <span className="only-text">Price : </span>
                     <span className="price">₹ {database.get(productId)["price"]} /-</span>
                 </span>
-                <button className="add-to-cart-button" data-id={productId} onClick={onClick}>Add to cart</button>
+                <button className="add-to-cart-button" data-id={productId} onClick={onClickButton}>Add to cart</button>
             </div>
         </div>
     );
@@ -27,7 +27,7 @@ function Product({productId, onClick}){
 
 Product.propTypes = {
     productId : PropTypes.string.isRequired,
-    onClick : PropTypes.func.isRequired
+    onClickTitle : PropTypes.func.isRequired
 }
 
 export default React.memo(Product);

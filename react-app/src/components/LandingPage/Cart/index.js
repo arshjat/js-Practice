@@ -92,10 +92,11 @@ function Cart({cartItemsList, toggleCart, onSelectChange, onDeleteItem}){
 };
 
 Cart.propTypes = {
-    cartItemsList : PropTypes.arrayOf([
-        PropTypes.string,
-        PropTypes.number
-    ]).isRequired,
+    cartItemsList : PropTypes.arrayOf(PropTypes.arrayOf(
+        PropTypes.shape(
+            PropTypes.string,
+            PropTypes.number)
+    )).isRequired,
     toggleCart : PropTypes.func.isRequired, 
     onSelectChange : PropTypes.func.isRequired, 
     onDeleteItem : PropTypes.func.isRequired

@@ -61,3 +61,10 @@ const database = new Map();
 
 mapIdToInfo.forEach(item => database.set(item["id"],item));
 export {database};
+
+const similarProductsList = [];
+similarProductsList.push("1");
+similarProductsList.push("2");
+similarProductsList.push("3");
+similarProductsList.push("4");
+export {similarProductsList};
