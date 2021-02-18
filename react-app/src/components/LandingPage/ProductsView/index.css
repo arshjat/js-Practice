@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    /* padding: 10px 10px; */
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 50vh;
+    width: 95%;
+  }

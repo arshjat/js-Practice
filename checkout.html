@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Checkout</title>
+    <meta charset="UTF-8" />
+    <script src="./checkout.js" defer></script>
+    <link rel="stylesheet" href="src/checkoutStyles.css" />
+  </head>
+
+  <body>
+    <header>
+      <!-- logo -->
+      <div class="logo">
+        <img src="src/images/sprinklr-logo.png" width="65px" height="65px" />
+        <span>Mart</span>
+      </div>
+
+      <!-- slideshow buttons -->
+      <div class="control-slideshow">
+        <button class="slideshow-button" id="bag">Bag</button>
+        <span class="separator">
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgaWQ9Ik1vcmUiPjxwYXRoIGQ9Im0yNTYgMTkyYTY0IDY0IDAgMSAwIDY0IDY0IDY0LjA3MiA2NC4wNzIgMCAwIDAgLTY0LTY0em0wIDExMmE0OCA0OCAwIDEgMSA0OC00OCA0OC4wNTUgNDguMDU1IDAgMCAxIC00OCA0OHoiLz48cGF0aCBkPSJtNzIgMTkyYTY0IDY0IDAgMSAwIDY0IDY0IDY0LjA3MiA2NC4wNzIgMCAwIDAgLTY0LTY0em0wIDExMmE0OCA0OCAwIDEgMSA0OC00OCA0OC4wNTUgNDguMDU1IDAgMCAxIC00OCA0OHoiLz48cGF0aCBkPSJtNDQwIDE5MmE2NCA2NCAwIDEgMCA2NCA2NCA2NC4wNzIgNjQuMDcyIDAgMCAwIC02NC02NHptMCAxMTJhNDggNDggMCAxIDEgNDgtNDggNDguMDU1IDQ4LjA1NSAwIDAgMSAtNDggNDh6Ii8+PC9nPjwvc3ZnPg=="
+            height="12vmin"
+            width="12vmin"
+          />
+        </span>
+        <button class="slideshow-button" id="delivery">Delivery</button>
+        <span class="separator">
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgaWQ9Ik1vcmUiPjxwYXRoIGQ9Im0yNTYgMTkyYTY0IDY0IDAgMSAwIDY0IDY0IDY0LjA3MiA2NC4wNzIgMCAwIDAgLTY0LTY0em0wIDExMmE0OCA0OCAwIDEgMSA0OC00OCA0OC4wNTUgNDguMDU1IDAgMCAxIC00OCA0OHoiLz48cGF0aCBkPSJtNzIgMTkyYTY0IDY0IDAgMSAwIDY0IDY0IDY0LjA3MiA2NC4wNzIgMCAwIDAgLTY0LTY0em0wIDExMmE0OCA0OCAwIDEgMSA0OC00OCA0OC4wNTUgNDguMDU1IDAgMCAxIC00OCA0OHoiLz48cGF0aCBkPSJtNDQwIDE5MmE2NCA2NCAwIDEgMCA2NCA2NCA2NC4wNzIgNjQuMDcyIDAgMCAwIC02NC02NHptMCAxMTJhNDggNDggMCAxIDEgNDgtNDggNDguMDU1IDQ4LjA1NSAwIDAgMSAtNDggNDh6Ii8+PC9nPjwvc3ZnPg=="
+            height="12vmin"
+            width="12vmin"
+          />
+        </span>
+        <button class="slideshow-button" id="payment">Payment</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="left-pane">
+        <section class="header-leftpane">
+          <p>My shopping Bag (3 items)</p>
+        </section>
+        <section class="main-leftpane">
+          <!-- cart items will be added here dynamically -->
+        </section>
+        <section class="footer-leftpane">
+          <p>Add more from wishlist ></p>
+        </section>
+      </section>
+      <div class="vertical-line">
+        <div class="line">
+          <div class="inner"></div>
+        </div>
+      </div>
+      <section class="right-pane">
+        <div class="summary-details">
+          <div class="prices">
+            <!-- Add order summary data here dynamically -->
+          </div>
+          <hr width="96%" />
+          <div class="total">
+            <!-- insert grand total -->
+          </div>
+          <div class="order-button">
+            <button id="order-button">Proceed To Pay</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- left for future use -->
+    <footer></footer>
+  </body>
+</html>
