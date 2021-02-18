@@ -1,23 +1,24 @@
 import './Header.css';
 import logo from './sprinklr-logo.png';
+// const logo = require('./sprinklr-logo.png')
 import { useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import actions from '../../store/actions/index';
 
 const selectorFn = (state: {country: {name: string}}):string => state.country.name;
 
-export default function Header():React.ReactNode {
-    
-    const [countryList,setCountryList] = useState([]);
+export default function Header():React.ReactElement {
+    const initialState:({name:string, flag:string})[] = [];
+    const [countryList,setCountryList] = useState(initialState);
     const selectedCountry = useSelector(selectorFn);
     const flag = useSelector((state: {country: {flag: string}}) => state.country.flag);
     const dispatch = useDispatch();
 
     useEffect( ()=> {
         fetch("https://restcountries.eu/rest/v2/all")
-        .then(res => res.json())
-        .then(data => setCountryList(data))
-        .catch(err => console.log("got this error while fetching data",err));
+        .then((res:Response) => res.json())
+        .then((data:[]) => setCountryList(data))
+        .catch((err:Error) => console.log("got this error while fetching data",err));
     },[]);
     
     const onChangeCountry = (e:React.ChangeEvent<HTMLSelectElement>): void =>{

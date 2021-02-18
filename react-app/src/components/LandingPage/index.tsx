@@ -4,7 +4,7 @@ import LandingPageDescription from './LandingPageDescription/index';
 import ProductsView from './ProductsView/index';
 import Line from '../VerticalLine/index';
 
-export default function LandingPage(){
+export default function LandingPage():React.ReactElement{
     return (
         <>
         <SlantedBackground id="up" />

@@ -3,11 +3,13 @@ import CartItem from './CartItem/index';
 import React, {useEffect, useState, useRef} from 'react';
 import {database} from '../../../database/index'; 
 import {Link} from 'react-router-dom';
-import PropTypes from 'prop-types';
+type Item = [string,number]
+type ChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => void;
+type ClickHandler = (e: React.MouseEvent<HTMLAnchorElement>) => void;
 
-function Cart({cartItemsList, toggleCart, onSelectChange, onDeleteItem}){
-
-    const [count,setCount] = useState();
+function Cart({cartItemsList, toggleCart, onSelectChange, onDeleteItem}:{cartItemsList:Item[], toggleCart:EventListener, onSelectChange:ChangeHandler, onDeleteItem:ClickHandler}): React.ReactElement{
+    const initialState:number = 0;
+    const [count,setCount] = useState(initialState);
     const totalPrice = useRef(0); 
     useEffect(()=>{
         const cart = document.getElementsByClassName("cart")[0];
@@ -22,14 +24,12 @@ function Cart({cartItemsList, toggleCart, onSelectChange, onDeleteItem}){
     useEffect(()=>{
         let totalCount = 0;
         totalPrice.current = 0;
-        cartItemsList.forEach(item => {
+        cartItemsList.forEach((item:[string,number]) => {
             totalCount+=item[1]
             totalPrice.current += Number(database.get(item[0])["price"].replace(',',''))*item[1];
         });
         setCount(totalCount);
     },[cartItemsList])
-
-
     
     return (
         <>
@@ -49,7 +49,7 @@ function Cart({cartItemsList, toggleCart, onSelectChange, onDeleteItem}){
 
                     <div className="cart-body">
                         <ul>
-                            {cartItemsList.map( item => (
+                            {cartItemsList.map( (item:[string,number]) => (
                                 <CartItem key={item[0]} productId={item[0]} count={item[1]} onSelectChange={onSelectChange} onDeleteItem={onDeleteItem}/>
                             ))}
                         </ul>
@@ -90,16 +90,5 @@ function Cart({cartItemsList, toggleCart, onSelectChange, onDeleteItem}){
         </>
     );
 };
-
-Cart.propTypes = {
-    cartItemsList : PropTypes.arrayOf(PropTypes.arrayOf(
-        PropTypes.shape(
-            PropTypes.string,
-            PropTypes.number)
-    )).isRequired,
-    toggleCart : PropTypes.func.isRequired, 
-    onSelectChange : PropTypes.func.isRequired, 
-    onDeleteItem : PropTypes.func.isRequired
-}
 
 export default React.memo(Cart);

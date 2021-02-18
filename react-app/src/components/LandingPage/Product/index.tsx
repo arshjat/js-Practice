@@ -1,9 +1,9 @@
 import './index.css';
 import {database} from '../../../database'; 
 import React from 'react';
-import PropTypes from 'prop-types';
-
-function Product({productId, onClickButton, onClickTitle}){
+type ButtonClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => void;
+type DivClickHandler = (e : React.MouseEvent<HTMLDivElement>) => void;
+function Product({productId, onClickButton, onClickTitle}:{productId:string, onClickButton:ButtonClickHandler, onClickTitle:DivClickHandler}): React.ReactElement{
     return (
         <div className="product" data-id={productId}>
             <div className="product-image-container">
@@ -25,9 +25,5 @@ function Product({productId, onClickButton, onClickTitle}){
 }
 
 
-Product.propTypes = {
-    productId : PropTypes.string.isRequired,
-    onClickTitle : PropTypes.func.isRequired
-}
 
 export default React.memo(Product);

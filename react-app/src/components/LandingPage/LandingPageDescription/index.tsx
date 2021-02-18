@@ -1,7 +1,7 @@
 import './index.css';
 import descriptionImg1 from './pic1.svg';
 import descriptionImg2 from './pic2.svg';
-export default function LandingPageDescription(){
+export default function LandingPageDescription(): React.ReactElement{
     return (
         <section className="description-grid">
             <div className="col1">
@@ -26,7 +26,7 @@ export default function LandingPageDescription(){
             </div>
             </div>
 
-            <a href="#catch-scroll" onClick={() => this.style.display = 'none'}><span></span><span></span><span></span
+            <a href="#catch-scroll" onClick={(e) => (e.target as HTMLAnchorElement).style.display = 'none'}><span></span><span></span><span></span
             ></a>
         </section>
     );

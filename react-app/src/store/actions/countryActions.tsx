@@ -1,4 +1,4 @@
-const changeCountryInfo = (name,flag) => {
+const changeCountryInfo = (name:string,flag:string) => {
     return {
         type : 'CHANGE_COUNTRY_INFO',
         payload : {

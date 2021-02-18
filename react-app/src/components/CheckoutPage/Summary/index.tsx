@@ -1,7 +1,6 @@
 import './index.css';
 import React from 'react';
-import PropTypes from 'prop-types';
-function Summary({bagTotal}){
+function Summary({bagTotal}:{bagTotal:number}): React.ReactElement{
     
     return (
             <div className="summary-details">
@@ -27,7 +26,7 @@ function Summary({bagTotal}){
                         
                         <div className="price-rows">
                             <div>Coupon Discount</div>
-                            <button style={{'background':'transparent','color':'blue','border':'none','font-size':'1.8vmin'}} id="coupon-link">Apply</button>
+                            <button style={{'background':'transparent','color':'blue','border':'none',fontSize:'1.8vmin'}} id="coupon-link">Apply</button>
                         </div>
                         
                         <div className="price-rows">
@@ -35,7 +34,7 @@ function Summary({bagTotal}){
                             <div>₹0</div>
                         </div> 
                     </div> 
-                <hr width="96%" />
+                {/* <hr width="96%" /> */}
                 <div className="total">
                         <div>Total</div>
                         <div>₹{bagTotal}</div>
@@ -45,10 +44,6 @@ function Summary({bagTotal}){
                 </div>
             </div>
     );
-}
-
-Summary.propTypes = {
-    bagTotal : PropTypes.number.isRequired
 }
 
 export default React.memo(Summary);

@@ -1,10 +1,9 @@
 import './index.css';
 import {database,similarProductsList} from '../../../database/index';
 import React from 'react';
-import PropTypes from 'prop-types';
 import {createPortal} from 'react-dom';
 import Line from '../../VerticalLine/index';
-const shortenName = name => {
+const shortenName = (name:string):string => {
     if(name.length < 18 ) return name;
     else{
         let temp = name.slice(0,18);
@@ -12,9 +11,10 @@ const shortenName = name => {
         return temp;
     }
 }
-function ProductModal ({visible,productId,onClickButton}) {
+type ClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => void;
+function ProductModal ({visible,productId,onClickButton}:{visible:boolean,productId:string|null,onClickButton:ClickHandler}):React.ReactElement {
     
-    if(!visible) return null;
+    if(!visible) return <></>;
     return createPortal(
         <>
             <div className="overlay" />
@@ -43,7 +43,7 @@ function ProductModal ({visible,productId,onClickButton}) {
                 </div>
                 <div className="similar-products-heading">Similar Products :</div>
                 <div className="similar-products-container">
-                {similarProductsList.map(item => {
+                {similarProductsList.map((item:string) => {
                     return (
                         <div className="similar-product" key={item}>
                             <div className="similar-prod-img">
@@ -58,13 +58,7 @@ function ProductModal ({visible,productId,onClickButton}) {
                 </div>
             </div>
         </>
-    ,document.getElementById("portal-root"));
-}
-
-ProductModal.propTypes = {
-    visible : PropTypes.bool.isRequired,
-    productId : PropTypes.string,
-    onClickButton : PropTypes.func.isRequired
+    ,document.getElementById("portal-root") as Element);
 }
 
 export default React.memo(ProductModal);

@@ -3,7 +3,7 @@ const initialState={
     "flag" : "https://restcountries.eu/data/ind.svg"
 }
 
-const country = (state=initialState , action) => {
+const country = (state=initialState , action:{type:string, payload:any}) => {
     switch (action.type){
         case 'CHANGE_COUNTRY_INFO' : {
             return {

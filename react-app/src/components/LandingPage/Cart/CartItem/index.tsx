@@ -1,8 +1,10 @@
 import './index.css';
 import {database} from '../../../../database/index';
 import React, {useMemo} from 'react';
-import PropTypes from 'prop-types';
-function CartItem ({productId, count, onSelectChange, onDeleteItem}) {
+
+type ChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => void;
+type ClickHandler = (e: React.MouseEvent<HTMLAnchorElement>) => void;
+function CartItem ({productId, count, onSelectChange, onDeleteItem}:{productId: string, count:number, onSelectChange:ChangeHandler, onDeleteItem:ClickHandler}):React.ReactElement {
     const info = useMemo (()=>{
         return {
             "nameOfProd" : database.get(productId)["nameOfProduct"],
@@ -46,12 +48,5 @@ function CartItem ({productId, count, onSelectChange, onDeleteItem}) {
         </>
     );
 };
-
-CartItem.propTypes = {
-    productId : PropTypes.string.isRequired, 
-    count : PropTypes.number.isRequired, 
-    onSelectChange : PropTypes.func.isRequired, 
-    onDeleteItem : PropTypes.func.isRequired
-}
 
 export default React.memo(CartItem);

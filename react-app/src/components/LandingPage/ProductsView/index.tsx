@@ -7,13 +7,14 @@ import Cart from '../Cart/index';
 import actions from '../../../store/actions/index';
 import ProductModal from '../ProductModal/index';
 // import {createPortal} from 'react-dom';
-const getCartItem = (state) => state.cart; 
+const getCartItem = (state:{cart:[string,number][]}) => state.cart; 
 
 export default function ProductsView(){
-    const [modal,setModal] = useState({
+    const initialState: {visible: boolean, selectedProductId: string|null} = {
         visible : false,
         selectedProductId : null
-    });
+    };
+    const [modal,setModal] = useState(initialState);
     const itemList = useSelector(getCartItem);
     const dispatch = useDispatch();
     // useCallback is used so that the same reference is passed always.
@@ -60,7 +61,7 @@ export default function ProductsView(){
         })
     },[])
 
-    const products = [];
+    const products:React.ReactElement[] = [];
     return (
         <>
             <div className="container">

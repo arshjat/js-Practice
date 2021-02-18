@@ -1,4 +1,4 @@
-const cart = (state=[],action) => {
+const cart = (state=[],action:{type:string, payload:any}) => {
     switch (action.type){
         case "ADD_ITEM" : {
             if(!( state.filter(item=>item[0]===action.payload).length >0)) return [...state,[action.payload,1]];
