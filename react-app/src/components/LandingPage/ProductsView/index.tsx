@@ -6,15 +6,10 @@ import {useSelector, useDispatch} from 'react-redux';
 import Cart from '../cart';
 import actions from '../../../store/actions';
 import ProductModal from '../productModal';
-// import {createPortal} from 'react-dom';
 const getCartItem = (state:{cart:[string,number][]}) => state.cart; 
-
+type ModalState = {visible: boolean, selectedProductId: string|null};
 export default function ProductsView(){
-    const initialState: {visible: boolean, selectedProductId: string|null} = {
-        visible : false,
-        selectedProductId : null
-    };
-    const [modal,setModal] = useState(initialState);
+    const [modal,setModal] = useState<ModalState>({visible : false, selectedProductId : null});
     const itemList = useSelector(getCartItem);
     const dispatch = useDispatch();
     // useCallback is used so that the same reference is passed always.

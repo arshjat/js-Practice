@@ -8,9 +8,8 @@ type ChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => void;
 type ClickHandler = (e: React.MouseEvent<HTMLAnchorElement>) => void;
 
 function Cart({cartItemsList, toggleCart, onSelectChange, onDeleteItem}:{cartItemsList:Item[], toggleCart:EventListener, onSelectChange:ChangeHandler, onDeleteItem:ClickHandler}): React.ReactElement{
-    const initialState:number = 0;
-    const [count,setCount] = useState(initialState);
-    const totalPrice = useRef(0); 
+    const [count,setCount] = useState<number>(0);
+    const totalPrice = useRef<number>(0); 
     useEffect(()=>{
         const cart = document.getElementsByClassName("cart")[0];
         cart.addEventListener("click",toggleCart);
