@@ -1,5 +1,5 @@
 import './index.css';
-import {database} from '../../../../database/index';
+import {database} from '../../../../database';
 import React, {useMemo} from 'react';
 
 type ChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => void;

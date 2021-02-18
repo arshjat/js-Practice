@@ -1,5 +1,5 @@
 import './index.css';
-import CartItem from '../CartItem/index';
+import CartItem from '../cartItem';
 import React from 'react';
 
 type ItemTuple =  [string,number];

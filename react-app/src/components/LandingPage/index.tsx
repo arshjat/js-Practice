@@ -1,8 +1,8 @@
 import './index.css';
-import SlantedBackground from './SlantedBackground/index';
-import LandingPageDescription from './LandingPageDescription/index';
-import ProductsView from './ProductsView/index';
-import Line from '../VerticalLine/index';
+import SlantedBackground from './slantedBackground';
+import LandingPageDescription from './landingPageDescription';
+import ProductsView from './productsView';
+import Line from '../verticalLine';
 
 export default function LandingPage():React.ReactElement{
     return (

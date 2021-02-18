@@ -1,12 +1,12 @@
 import './index.css';
 
-import Summary from './Summary/index';
-import CartItemsContainer from './CartItemsContainer/index';
+import Summary from './Summary';
+import CartItemsContainer from './cartItemsContainer';
 import {useCallback,useMemo} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {database} from '../../database/index';
-import Line from '../VerticalLine/index';
-import actions from '../../store/actions/index';
+import {database} from '../../database';
+import Line from '../verticalLine';
+import actions from '../../store/actions';
 
 type Item = [string,number]
 export default function CheckoutPage():React.ReactElement{

@@ -1,4 +1,4 @@
-import CheckoutPage from './CheckoutPage/index';
-import LandingPage from './LandingPage/index';
-import Header from './Header/index';
+import CheckoutPage from './checkoutPage';
+import LandingPage from './landingPage';
+import Header from './header';
 export {Header,LandingPage,CheckoutPage};

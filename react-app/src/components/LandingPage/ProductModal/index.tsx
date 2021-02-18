@@ -1,8 +1,8 @@
 import './index.css';
-import {database,similarProductsList} from '../../../database/index';
+import {database,similarProductsList} from '../../../database';
 import React from 'react';
 import {createPortal} from 'react-dom';
-import Line from '../../VerticalLine/index';
+import Line from '../../verticalLine';
 const shortenName = (name:string):string => {
     if(name.length < 18 ) return name;
     else{

@@ -1,7 +1,7 @@
 import './index.css';
-import CartItem from './CartItem/index';
+import CartItem from './cartItem';
 import React, {useEffect, useState, useRef} from 'react';
-import {database} from '../../../database/index'; 
+import {database} from '../../../database'; 
 import {Link} from 'react-router-dom';
 type Item = [string,number]
 type ChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => void;

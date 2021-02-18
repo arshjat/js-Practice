@@ -3,7 +3,7 @@ import logo from './sprinklr-logo.png';
 // const logo = require('./sprinklr-logo.png')
 import { useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import actions from '../../store/actions/index';
+import actions from '../../store/actions';
 
 const selectorFn = (state: {country: {name: string}}):string => state.country.name;
 

@@ -1,11 +1,11 @@
 import './index.css';
-import {database} from '../../../database/index'; 
-import Product from '../Product/index';
+import {database} from '../../../database'; 
+import Product from '../product';
 import React, {useState, useCallback} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import Cart from '../Cart/index';
-import actions from '../../../store/actions/index';
-import ProductModal from '../ProductModal/index';
+import Cart from '../cart';
+import actions from '../../../store/actions';
+import ProductModal from '../productModal';
 // import {createPortal} from 'react-dom';
 const getCartItem = (state:{cart:[string,number][]}) => state.cart; 
 
