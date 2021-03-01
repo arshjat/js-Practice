@@ -2,7 +2,7 @@ import './index.css';
 
 import Summary from './Summary';
 import CartItemsContainer from './cartItemsContainer';
-import {useCallback,useMemo} from 'react';
+import { useCallback,useMemo} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {database} from '../../database';
 import Line from '../verticalLine';
@@ -50,3 +50,4 @@ export default function CheckoutPage():React.ReactElement{
         </>
     );
 }
+

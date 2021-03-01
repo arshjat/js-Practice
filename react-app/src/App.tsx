@@ -1,9 +1,12 @@
 import './App.css';
-import {Header, LandingPage,CheckoutPage} from './components/index';
+import {Header, LandingPage} from './components';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-import rootReducer from './store/reducers/index';
+import rootReducer from './store/reducers';
 import {BrowserRouter as Router, Route,  Switch} from 'react-router-dom';
+
+//test
+import WrapperCheckout from './components/WrapperCheckout';
 function App() {
   
   const store = createStore(rootReducer);
@@ -14,7 +17,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/" exact component={LandingPage}/>
-        <Route path="/checkout" exact component = {CheckoutPage} />
+        <Route path="/checkout" exact component = {WrapperCheckout} />
       </Switch>
     </Router>
   </Provider>

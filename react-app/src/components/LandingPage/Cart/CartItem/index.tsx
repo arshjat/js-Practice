@@ -28,8 +28,8 @@ function CartItem ({productId, count, onSelectChange, onDeleteItem}:{productId: 
                     <a href="#0" className="delete-item-button" data-id={productId} onClick={onDeleteItem}>Delete</a>
                     <div className="quantity">
                         <label htmlFor={productId}>Qty</label>
-                        <span className="select-quantity">
-                            <select className="reset" id={productId} data-id={productId} value={ (count).toString() } onChange={onSelectChange}>
+                        <span className="select-quantity-cart">
+                            <select className="reset-cart" id={productId} data-id={productId} value={ (count).toString() } onChange={onSelectChange}>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>

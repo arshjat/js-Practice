@@ -100,24 +100,24 @@
 }
 
 /* Properties of select quantity option */
-.select-quantity {
+.select-quantity-cart {
     position: relative;
   }
-  .select-quantity select {
+  .select-quantity-cart select {
     position: relative;
     padding: 0 1.25em 0 0;
     cursor: pointer;
     color: currentColor;
   }
-  .select-quantity select:focus {
+  .select-quantity-cart select:focus {
     outline: none;
     color: hsl(210, 31%, 24%);
     box-shadow: 0 1px 0 currentColor;
   }
-  .select-quantity select::-ms-expand {
+  .select-quantity-cart select::-ms-expand {
     display: none;
   }
-  .select-quantity .icon {
+  .select-quantity-cart .icon {
     position: absolute;
     z-index: 1;
     right: 0;
@@ -132,8 +132,11 @@
     pointer-events: none;
   }
   @media (min-width: 64rem) {
-    .select-quantity select {
+    .select-quantity-cart select {
       padding-right: 0.75em;
       padding-right: var(--space-sm);
     }
   }
+.reset-cart{
+  border: none;
+}
