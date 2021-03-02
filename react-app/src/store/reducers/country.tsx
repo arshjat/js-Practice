@@ -1,18 +1,18 @@
-const initialState={
-    "name" : "India",
-    "flag" : "https://restcountries.eu/data/ind.svg"
-}
+const initialState = {
+  name: 'India',
+  flag: 'https://restcountries.eu/data/ind.svg',
+};
 
-const country = (state=initialState , action:{type:string, payload:any}) => {
-    switch (action.type){
-        case 'CHANGE_COUNTRY_INFO' : {
-            return {
-                "name" : action.payload.name,
-                "flag" : action.payload.flag
-            }
-        } 
-        default : return state;
+const country = (state = initialState, action:{type:string, payload:any}) => {
+  switch (action.type) {
+    case 'CHANGE_COUNTRY_INFO': {
+      return {
+        name: action.payload.name,
+        flag: action.payload.flag,
+      };
     }
-}
+    default: return state;
+  }
+};
 
 export default country;

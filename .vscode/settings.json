@@ -5,5 +5,9 @@
         "leftpane",
         "powerbank",
         "sprinklr"
+    ],
+    "cSpell.ignoreWords": [
+        "aposll",
+        "apossll"
     ]
 }
